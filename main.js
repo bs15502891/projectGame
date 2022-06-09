@@ -95,11 +95,11 @@ const goblinLife = document.querySelector('#GoblinLife')
 let goblinLife1 = 500
 const btn = document.querySelector('#Goblin')
 
-btn.addEventListener('mousedown', function () {
+btn.addEventListener('mousedown touchend', function () {
   goblinHurt.src = 'assets/image/GoblinHurt.svg'
 })
 
-btn.addEventListener('mouseup', function () {
+btn.addEventListener('mouseup touchstart', function () {
   goblinHurt.src = 'assets/image/Goblin.svg'
 })
 
