@@ -1,0 +1,234 @@
+/**
+ * ----------------------------------------------------------------------------------------
+ * Reset
+ * ----------------------------------------------------------------------------------------
+ */ 
+* {
+  margin: 0;  padding: 0;  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+}
+/**
+ * ----------------------------------------------------------------------------------------
+ * Variables
+ * ----------------------------------------------------------------------------------------
+ */ 
+:root {
+/* colors */
+  --color01: #000000;
+  --color02: #ffffff;
+  --color03: #A0E6FE;
+  --color04: #2A487B;
+  --color05: #5D392B;
+  --color06: #F3F67C;
+  --color07: #6DC376;
+  --color08: #EA2222;
+  --color09: hsla(182, 53%, 74%, 1);
+  --color10: hsla(126, 42%, 60%, 1);
+
+/* fonts */
+  --font-h1: 3rem 'Knewave', sans-serif;
+  --font-h2: 2.5rem 'Knewave', sans-serif;
+  --font-h3: 2rem 'Knewave', sans-serif;
+  --font-h4: 1.5rem 'Knewave', sans-serif;
+  --font-h5: 1rem 'Knewave', sans-serif;
+  --font-border: 2px var(--color01);
+
+/* Borde Shadow */
+  --border: 5px solid var(--color01);
+  --box-shadow: inset 0 1px 10px var(--color01);
+  --box-shadow2: 0 5px 20px var(--color01);
+}
+/**
+ * ----------------------------------------------------------------------------------------
+ * Base
+ * ----------------------------------------------------------------------------------------
+ */
+ h1, h2, h3, h4 { color: var(--color02); -webkit-text-stroke: var(--font-border);}
+
+ h5 { color: var(--color02); -webkit-text-stroke: 1px var(--color01);}
+
+ h1 {	font: var(--font-h1);}
+ h2 {	font: var(--font-h2);}
+ h3 {	font: var(--font-h3);}
+ h4 {	font: var(--font-h4);}
+ h5 {	font: var(--font-h5);}
+ h6 {	font: var(--font-h6);}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Layout
+ * ----------------------------------------------------------------------------------------
+ */
+/* Major */
+ #MobilePage1, #MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+ }
+   
+ #MobilePage1 {background-image: url(assets/image/Background.svg);}
+ #MobilePage2 {background-image: url(assets/image/WoodBackground.svg);}
+ #MobilePage3 {background-image: url(assets/image/WoodBackground.svg);}
+ #MobilePage4 {background-image: url(assets/image/WoodBackground.svg);}
+ #MobilePage5 {background-image: url(assets/image/Background.svg);}
+
+ main {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+footer {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 1rem;
+  text-align: center;
+}
+
+/* Minor */
+.l-center {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top:250px;
+}
+  
+
+  
+
+.l-tittle {  
+  background-image: url(assets/image/TittleBackground.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.l-collumn1 {
+  column-count: 1;
+}
+
+.l-collumn2 {
+  column-count: 2;
+}
+
+.l-collumn3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Module Styles
+ * ----------------------------------------------------------------------------------------
+ */
+
+ 
+/**
+ * ----------------------------------------------------------------------------------------
+ * State
+ * ----------------------------------------------------------------------------------------
+ */
+#MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5 {
+  display: none
+ }
+
+ #MobilePage1.hidden, #MobilePage2.hidden, #MobilePage3.hidden, #MobilePage4.hidden, #MobilePage5.hidden {
+  display: none ;
+}
+
+ #MobilePage1.show, #MobilePage2.show, #MobilePage3.show, #MobilePage4.show, #MobilePage5.show {
+  display: block ;
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Theme
+ * ----------------------------------------------------------------------------------------
+ */
+
+/* Buttons */
+.button {
+  background-image: url('assets/image/button-exlarge-background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  -webkit-text-stroke: var(--font-border);
+  color: var(--color02);
+  box-shadow: var(--box-shadow2);
+  margin-top: 1rem;
+}
+
+.btn-exlarge {
+  font: var(--font-h1);
+  margin-bottom: 1rem;
+  width: 350px;
+  height: 100px;
+}
+
+.btn-large {
+  font: var(--font-h2);
+}
+
+.btn-medium {
+  font: var(--font-h3);
+  width: 150px;
+}
+
+.btn-small {
+  font: var(--font-h4);
+  width: 100px;
+  height: 40px;
+}
+
+/* Box */
+.box {
+  background-color: var(--color05);
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  padding: 0.1rem;
+}
+
+/* Bar */
+.bar {
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  width: 200px;
+}
+
+.b-coin {
+  background-color: var(--color06);
+}
+
+.b-life{
+  background-color: var(--color07);
+}
+
+.bar-coin2, .bar-life2  {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bar-coin2 {
+margin-top: 3rem;
+}
+
+.b-monster{
+  background-color: var(--color08);
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  margin-bottom: 3rem;
+}
