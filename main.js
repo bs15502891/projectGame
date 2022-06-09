@@ -89,3 +89,27 @@ const back6 = document.querySelector('#MobilePage6 footer .back')
 back6.addEventListener('click', function () {
   page6.classList.toggle('show')
 })
+
+const goblinHurt = document.querySelector('#Goblin')
+const goblinLife = document.querySelector('#GoblinLife')
+let goblinLife1 = 500
+const btn = document.querySelector('#Goblin')
+
+btn.addEventListener('mousedown', function () {
+  goblinHurt.src = 'assets/image/GoblinHurt.svg'
+})
+
+btn.addEventListener('mouseup', function () {
+  goblinHurt.src = 'assets/image/Goblin.svg'
+})
+
+btn.addEventListener('click', function () {
+  if (goblinLife1 !== 0) {
+    goblinLife1 -= 10
+    let i = `${goblinLife1}`
+    goblinLife.innerText = `${i}`
+  } else {
+    goblinHurt.src = 'assets/image/GoblinDead.svg'
+    goblinLife.innerText = '0'
+  }
+})
