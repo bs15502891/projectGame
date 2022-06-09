@@ -136,7 +136,6 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  row-gap: 1rem;
 }
 
 .l-collumn3 {
