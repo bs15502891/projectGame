@@ -68,8 +68,24 @@ back4.addEventListener('click', function () {
  * ----------------------------------------------------------------------------------------
  */
 const page5 = document.querySelector('#MobilePage5')
+const next5 = document.querySelector('#MobilePage5 footer .next')
 const back5 = document.querySelector('#MobilePage5 footer .back')
 
+next5.addEventListener('click', function () {
+  page5.classList.toggle('hidden')
+  page6.classList.toggle('show')
+})
 back5.addEventListener('click', function () {
   page5.classList.toggle('show')
+})
+/**
+ * ----------------------------------------------------------------------------------------
+ * Page6
+ * ----------------------------------------------------------------------------------------
+ */
+const page6 = document.querySelector('#MobilePage6')
+const back6 = document.querySelector('#MobilePage6 footer .back')
+
+back6.addEventListener('click', function () {
+  page6.classList.toggle('show')
 })

@@ -62,7 +62,7 @@ body, html {
  * ----------------------------------------------------------------------------------------
  */
 /* Major */
- #MobilePage1, #MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5 {
+ #MobilePage1, #MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5, #MobilePage6 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -78,7 +78,8 @@ body, html {
  #MobilePage2 {background-image: url(assets/image/WoodBackground.svg);}
  #MobilePage3 {background-image: url(assets/image/WoodBackground.svg);}
  #MobilePage4 {background-image: url(assets/image/WoodBackground.svg);}
- #MobilePage5 {background-image: linear-gradient(to bottom, var(--color03), var(--color04));}
+ #MobilePage5 {background-image: url(assets/image/WoodBackground.svg);}
+ #MobilePage6 {background-image: linear-gradient(to bottom, var(--color03), var(--color04));}
 
  main {
   margin-left: 0.5rem;
@@ -128,7 +129,8 @@ footer {
 }
 
 .l-collumn2 {
-  column-count: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
 }
 
@@ -150,15 +152,15 @@ footer {
  * State
  * ----------------------------------------------------------------------------------------
  */
-#MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5 {
+#MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5, #MobilePage6 {
   display: none
  }
 
- #MobilePage1.hidden, #MobilePage2.hidden, #MobilePage3.hidden, #MobilePage4.hidden, #MobilePage5.hidden {
+ #MobilePage1.hidden, #MobilePage2.hidden, #MobilePage3.hidden, #MobilePage4.hidden, #MobilePage5.hidden, #MobilePage6.hidden {
   display: none ;
 }
 
- #MobilePage1.show, #MobilePage2.show, #MobilePage3.show, #MobilePage4.show, #MobilePage5.show {
+ #MobilePage1.show, #MobilePage2.show, #MobilePage3.show, #MobilePage4.show, #MobilePage5.show, #MobilePage6.show {
   display: block ;
 }
 
@@ -231,7 +233,7 @@ footer {
 }
 
 .bar-coin2 {
-margin-top: 3rem;
+margin-top: 1rem;
 }
 
 .b-monster{
@@ -239,5 +241,5 @@ margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
   width: 200px;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
