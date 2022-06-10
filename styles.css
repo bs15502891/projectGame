@@ -24,8 +24,12 @@ body, html {
   --color06: #F3F67C;
   --color07: #6DC376;
   --color08: #EA2222;
-  --color09: hsla(182, 53%, 74%, 1);
-  --color10: hsla(126, 42%, 60%, 1);
+  --color09: #C37B5C;
+  --color10: #314863;
+  --color11: #F7C13C;
+  --color12: #E9C601;
+  --color13: #17E1C7;
+  --color14: #9FB2D1;
 
 /* fonts */
   --font-h1: 3rem 'Knewave', sans-serif;
@@ -130,12 +134,14 @@ footer {
 .l-collumn1 {
   column-count: 1;
   align-items: center;
+ 
 }
 
 .l-collumn2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .l-collumn3 {
@@ -167,6 +173,34 @@ footer {
   display: block ;
 }
 
+.box {
+  background-color: var(--color02);
+}
+
+.bronze {
+  background-color: var(--color09);
+}
+
+.steel {
+  background-color: var(--color10);
+}
+
+.gold {
+  background-color: var(--color11);
+} 
+
+.topaz {
+  background-color: var(--color12);
+}
+
+.emerald {
+  background-color: var(--color13);
+}
+
+.diamond {
+  background-color: var(--color14);
+}
+
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -195,7 +229,8 @@ footer {
 }
 
 .btn-large {
-  font: var(--font-h2);
+  font: var(--font-h3);
+  width: 200px;
 }
 
 .btn-medium {
@@ -211,10 +246,11 @@ footer {
 
 /* Box */
 .box {
-  background-color: var(--color05);
   border: var(--border);
   box-shadow: var(--box-shadow);
   padding: 0.1rem;
+  width: 50px;
+  height: 50px;
 }
 
 /* Bar */

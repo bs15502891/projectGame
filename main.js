@@ -45,6 +45,39 @@ back3.addEventListener('click', function () {
   page3.classList.toggle('show')
 })
 
+const btnhelmet = document.querySelector('#btn-helmet')
+const btnarmor = document.querySelector('#btn-armor')
+const btnboots = document.querySelector('#btn-boots')
+const btnweapon = document.querySelector('#btn-weapon')
+const btnshield = document.querySelector('#btn-shield')
+const btnring = document.querySelector('#btn-ring')
+
+btnring.addEventListener('click', myFunction)
+
+let equipclick = 0
+
+function myFunction() {
+  equipclick += 1
+  if (equipclick == 1) {
+    imgring.style.background = 'var(--color09)'
+  }
+  if (equipclick == 2) {
+    imgring.style.background = 'var(--color10)'
+  }
+  if (equipclick == 3) {
+    imgring.style.background = 'var(--color11)'
+  }
+  if (equipclick == 4) {
+    imgring.style.background = 'var(--color12)'
+  }
+  if (equipclick == 5) {
+    imgring.style.background = 'var(--color13)'
+  }
+  if (equipclick == 6) {
+    imgring.style.background = 'var(--color14)'
+  }
+}
+
 /**
  * ----------------------------------------------------------------------------------------
  * Page4
@@ -95,11 +128,11 @@ const goblinLife = document.querySelector('#GoblinLife')
 let goblinLife1 = 500
 const btn = document.querySelector('#Goblin')
 
-btn.addEventListener('mousedown touchend', function () {
+btn.addEventListener('mousedown', function () {
   goblinHurt.src = 'assets/image/GoblinHurt.svg'
 })
 
-btn.addEventListener('mouseup touchstart', function () {
+btn.addEventListener('mouseup', function () {
   goblinHurt.src = 'assets/image/Goblin.svg'
 })
 
