@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Project Game</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
@@ -19,9 +19,9 @@
   </head>
 
   <body>
-    <!-- PAGE01-->
+    <!-- PAGE01 NEW GAME--------------------------------------------------->
     <div id="MobilePage1">
-      <header>
+      <header id="header">
         <img
           class="l-absolute l-cloud"
           src="assets/image/Cloud.svg"
@@ -34,16 +34,18 @@
         /><br />
       </header>
 
-      <main class="l-absolute l-center">
-        <button class="newgame button btn-exlarge">NEW GAME</button>
+      <main id="main">
+        <button class="l-absolute button btn-newgame btn-large">
+          NEW GAME
+        </button>
       </main>
 
       <footer></footer>
     </div>
 
-    <!-- PAGE02-->
+    <!-- PAGE02 LOGIN------------------------------------------------------>
     <div id="MobilePage2">
-      <header cla>
+      <header id="header">
         <img
           class="l-absolute l-cloud"
           src="assets/image/Cloud.svg"
@@ -54,34 +56,75 @@
           src="assets/image/Island.svg"
           alt="Island"
         /><br />
-        <button class="button btn-exlarge">CHOOSE</button>
       </header>
 
-      <main class="l-collumn2">
+      <main id="main">
+        <input
+          id="Login"
+          class="l-absolute input"
+          type="text"
+          placeholder="login"
+          minlength="4"
+          maxlength="8"
+        /><br />
+        <input
+          id="Password"
+          class="l-absolute input"
+          type="password"
+          placeholder="password"
+          minlength="4"
+          maxlength="8"
+        />
+        <br />
+        <button class="button btn-large btn-enter">ENTER</button>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <!-- PAGE03 CHOOSE----------------------------------------------------->
+    <div id="MobilePage3">
+      <header id="header">
+        <img
+          class="l-absolute l-cloud"
+          src="assets/image/Cloud.svg"
+          alt="Cloud"
+        /><br />
+        <img
+          class="l-absolute l-island"
+          src="assets/image/Island.svg"
+          alt="Island"
+        /><br />
+        <button class="button btn-large">CHOOSE</button>
+      </header>
+
+      <main id="main" class="l-collumn2">
         <div>
           <img src="assets/image/Knight.svg" alt="Knight" /><br />
-          <button class="btn-knight button btn-medium">KNIGHT</button>
+          <button class="btn-knight button btn-large">KNIGHT</button>
         </div>
         <div>
           <img src="assets/image/Archer.svg" alt="Archer" /><br />
-          <button class="btn-archer button btn-medium">ARCHER</button>
+          <button class="btn-archer button btn-large">ARCHER</button>
         </div>
         <div>
-          <img src="assets/image/Assassin.svg" alt="Archer" /><br />
-          <button class="btn-archer button btn-medium">ASSASSIN</button>
+          <img src="assets/image/Assassin.svg" alt="Assassin" /><br />
+          <button class="btn-assassin button btn-large">ASSASSIN</button>
         </div>
         <div>
           <img src="assets/image/Mage.svg" alt="Mage" /><br />
-          <button class="btn-mage button btn-medium">MAGE</button>
+          <button class="btn-mage button btn-large">MAGE</button>
         </div>
       </main>
 
-      <footer><button class="back button btn-small">BACK</button></footer>
+      <footer id="footer">
+        <button class="button btn-back btn-medium">BACK</button>
+      </footer>
     </div>
 
-    <!-- PAGE03-->
-    <div id="MobilePage3">
-      <header>
+    <!-- PAGE04 HERO------------------------------------------------------->
+    <div id="MobilePage4">
+      <header id="header">
         <img
           class="l-absolute l-cloud"
           src="assets/image/Cloud.svg"
@@ -92,77 +135,150 @@
           src="assets/image/Island.svg"
           alt="Island"
         /><br />
-        <button class="button btn-exlarge">EQUIPS</button>
+        <button class="button btn-large">HERO</button>
       </header>
-      <main>
+
+      <main id="main">
+        <img
+          class="img-hero"
+          src="assets/image/Knight.svg"
+          alt="KnightProfile"
+        /><br />
+        <button class="btn-status button btn-large">STATUS</button><br />
+        <button class="btn-equips button btn-large">EQUIPS</button><br />
+        <button class="btn-attributes button btn-large">ATTRIBUTES</button
+        ><br />
+        <button class="btn-nivel button btn-large">NÍVEL 1</button><br />
+      </main>
+
+      <footer id="footer">
+        <button class="button btn-reset btn-medium">RESET</button>
+      </footer>
+    </div>
+
+    <!-- PAGE05 STATUS----------------------------------------------------->
+    <div id="MobilePage5">
+      <header id="header">
+        <img
+          class="l-absolute l-cloud"
+          src="assets/image/Cloud.svg"
+          alt="Cloud"
+        /><br />
+        <img
+          class="l-absolute l-island"
+          src="assets/image/Island.svg"
+          alt="Island"
+        /><br />
+        <button class="button btn-large">STATUS</button>
+      </header>
+
+      <main id="main">
+        <img
+          class="img-hero"
+          src="assets/image/Knight.svg"
+          alt="KnightProfile"
+        /><br />
+        <div class="l-collumn2">
+          <div>
+            <button class="button btn-medium">HP</button><br />
+            <button class="button btn-medium">ATT</button><br />
+            <button class="button btn-medium">DEF</button><br />
+            <button class="button btn-medium">$</button>
+          </div>
+          <div>
+            <h4 class="heroHP"></h4>
+            <br />
+            <h4 class="heroATT"></h4>
+            <br />
+            <h4 class="heroDEF"></h4>
+            <br />
+            <h4 class="heroCOIN"></h4>
+          </div>
+        </div>
+      </main>
+
+      <footer id="footer">
+        <button class="button btn-back btn-medium">BACK</button>
+      </footer>
+    </div>
+
+    <!-- PAGE06 EQUIPS----------------------------------------------------->
+    <div id="MobilePage6">
+      <header id="header">
+        <img
+          class="l-absolute l-cloud"
+          src="assets/image/Cloud.svg"
+          alt="Cloud"
+        /><br />
+        <img
+          class="l-absolute l-island"
+          src="assets/image/Island.svg"
+          alt="Island"
+        /><br />
+        <button class="button btn-large">EQUIPS</button>
+      </header>
+      <main id="main">
         <div class="l-collumn2">
           <div>
             <img
-              id="imghelmet"
-              class="box"
+              class="box heroHELMET"
               src="assets/image/Helmet.svg"
               alt="Helmet"
             /><br />
-            <button id="btn-helmet" class="button btn-small">HELMET</button>
+            <button class="button btn-helmet btn-medium">HELMET</button>
           </div>
           <div>
             <img
-              id="imgweapon"
-              class="box"
+              class="box heroWEAPON"
               src="assets/image/Weapon.svg"
               alt="Weapon"
             /><br />
-            <button id="btn-weapon" class="button btn-small">WEAPON</button>
+            <button class="button btn-weapon btn-medium">WEAPON</button>
           </div>
           <div>
             <img
-              id="imgarmor"
-              class="box"
+              class="box heroARMOR"
               src="assets/image/Armor.svg"
               alt="Armor"
             /><br />
-            <button id="btn-armor" class="button btn-small">ARMOR</button>
+            <button class="button btn-armor btn-medium">ARMOR</button>
           </div>
           <div>
             <img
-              id="imgshield"
-              class="box"
+              class="box heroSHIELD"
               src="assets/image/Shield.svg"
               alt="Shield"
             /><br />
-            <button id="btn-shield" class="button btn-small">SHIELD</button>
+            <button class="button btn-shield btn-medium">SHIELD</button>
           </div>
           <div>
             <img
-              id="imgboots"
-              class="box"
+              class="box heroBOOTS"
               src="assets/image/Boots.svg"
               alt="Boots"
             /><br />
-            <button id="btn-boots" class="button btn-small">BOOTS</button>
+            <button class="button btn-boots btn-medium">BOOTS</button>
           </div>
 
           <div>
             <img
-              id="imgring"
-              class="box"
+              class="box heroRING"
               src="assets/image/Ring.svg"
               alt="Ring"
             /><br />
-            <button id="btn-ring" class="button btn-small">RING</button>
+            <button class="button btn-ring btn-medium">RING</button>
           </div>
         </div>
       </main>
 
-      <footer>
-        <button class="back button btn-small">BACK</button>
-        <button class="next button btn-small">NEXT</button>
+      <footer id="footer">
+        <button class="button btn-back btn-medium">BACK</button>
       </footer>
     </div>
 
-    <!-- PAGE04-->
-    <div id="MobilePage4">
-      <header>
+    <!-- PAGE07 ATTRIBUTES------------------------------------------------->
+    <div id="MobilePage7">
+      <header id="header">
         <img
           class="l-absolute l-cloud"
           src="assets/image/Cloud.svg"
@@ -173,53 +289,47 @@
           src="assets/image/Island.svg"
           alt="Island"
         /><br />
-        <button class="button btn-exlarge">ATTRIBUTES</button>
+        <button class="button btn-large">ATTRIBUTES</button>
       </header>
 
-      <main>
+      <main id="main">
         <div>
           <div class="l-collumn3">
-            <button id="btn-str" class="button btn-medium">STR</button>
-            <h4 id="sstr">01</h4>
-            <h4><i>$</i> 5</h4>
+            <button class="button btn-str btn-large">STR</button>
+            <h4 class="heroSTR">xx</h4>
+            <h4>$10</h4>
           </div>
           <div class="l-collumn3">
-            <button id="btn-int" class="button btn-medium">INT</button>
-            <h4 id="sint">01</h4>
-            <h4><i>$</i> 5</h4>
+            <button class="button btn-int btn-large">INT</button>
+            <h4 class="heroINT">01</h4>
+            <h4>$10</h4>
           </div>
           <div class="l-collumn3">
-            <button id="btn-dex" class="button btn-medium">DEX</button>
-            <h4 id="sdex">01</h4>
-            <h4><i>$</i> 5</h4>
+            <button class="button btn-dex btn-large">DEX</button>
+            <h4 class="heroDEX">01</h4>
+            <h4>$10</h4>
           </div>
           <div class="l-collumn3">
-            <button id="btn-vit" class="button btn-medium">VIT</button>
-            <h4 id="svit">01</h4>
-            <h4><i>$</i> 5</h4>
+            <button class="button btn-vit btn-large">VIT</button>
+            <h4 class="heroVIT">01</h4>
+            <h4>$10</h4>
           </div>
           <div class="l-collumn3">
-            <button id="btn-coin" class="button btn-medium">$</button>
-            <h4 id="scoin">01</h4>
-            <h4><i>$</i> 5</h4>
-          </div>
-          <div class="l-collumn3">
-            <button id="btn-life" class="button btn-medium">LIFE</button>
+            <button class="button btn-life btn-large">LIFE</button>
             <h4>FULL</h4>
-            <h4><i>$</i> 50</h4>
+            <h4>$50</h4>
           </div>
         </div>
       </main>
 
-      <footer>
-        <button class="back button btn-small">BACK</button>
-        <button class="next button btn-small">NEXT</button>
+      <footer id="footer">
+        <button class="button btn-back btn-medium">BACK</button>
       </footer>
     </div>
 
-    <!-- PAGE05-->
-    <div id="MobilePage5">
-      <header>
+    <!-- PAGE08 GOBLIN----------------------------------------------------->
+    <div id="MobilePage8">
+      <header id="header">
         <img
           class="l-absolute l-cloud"
           src="assets/image/Cloud.svg"
@@ -230,26 +340,35 @@
           src="assets/image/Island.svg"
           alt="Island"
         /><br />
-        <button class="button btn-exlarge">STATUS</button>
+        <button class="button btn-large">FIGHT</button>
       </header>
-
       <main>
-        <img src="assets/image/Knight.svg" alt="KnightProfile" /><br />
-        <button class="button btn-large">HP 500/500</button><br />
-        <button class="button btn-large">ATT 10</button><br />
-        <button class="button btn-large">DEF 10</button><br />
-        <button class="button btn-large">$ 50</button><br />
+        <div>
+          <h4 class="heroCOIN bar b-coin"></h4>
+          <h4 class="heroHP bar b-hero"></h4>
+          <h4 class="goblinHP bar b-monster"></h4>
+        </div>
+        <div>
+          <h1 class="inf-attack">ATTACK</h1>
+          <img
+            class="img-goblin"
+            src="assets/image/Goblin.svg"
+            alt="Goblin"
+          /><br />
+        </div>
       </main>
 
       <footer>
-        <button class="back button btn-small">BACK</button>
-        <button class="next button btn-small">NEXT</button>
+        <button class="l-absolute button btn-fight btn-large">FIGHT</button>
+        <button class="l-absolute button hidden btn-upgrade btn-large">
+          UPGRADE
+        </button>
       </footer>
     </div>
 
-    <!-- PAGE06-->
-    <div id="MobilePage6" class="">
-      <header>
+    <!-- PAGE09 SKELETON------------------------------------------------------>
+    <div id="MobilePage9">
+      <header id="header">
         <img
           class="l-absolute l-cloud"
           src="assets/image/Cloud.svg"
@@ -260,27 +379,29 @@
           src="assets/image/Island.svg"
           alt="Island"
         /><br />
-        <button class="button btn-exlarge">FIGHT</button>
+        <button class="button btn-large">FIGHT</button>
       </header>
       <main>
         <div>
-          <h5 class="bar-coin2">
-            <img src="assets/image/coin.svg" alt="coin" /> 100
-          </h5>
-          <h5 class="bar-life2">
-            <img src="assets/image/s2.svg" alt="s2" /> 500/500
-          </h5>
+          <h4 class="heroCOIN bar b-coin"></h4>
+          <h4 class="heroHP bar b-hero"></h4>
+          <h4 class="skeletonHP bar b-monster"></h4>
         </div>
         <div>
-          <h5 id="GoblinLife" class="bar b-monster">500</h5>
-          <h1>ATTACK</h1>
-          <img id="Goblin" src="assets/image/Goblin.svg" alt="Goblin" /><br />
+          <h1 class="inf-attack">ATTACK</h1>
+          <img
+            class="img-skeleton"
+            src="assets/image/Skeleton.svg"
+            alt="Skeleton"
+          /><br />
         </div>
       </main>
 
       <footer>
-        <button class="back button btn-small">BACK</button>
-        <button class="next button btn-small">NEXT</button>
+        <button class="l-absolute button btn-fight btn-large">FIGHT</button>
+        <button class="l-absolute button hidden btn-upgrade btn-large">
+          UPGRADE
+        </button>
       </footer>
     </div>
   </body>

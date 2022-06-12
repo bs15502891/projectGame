@@ -27,9 +27,9 @@ body, html {
   --color09: #C37B5C;
   --color10: #314863;
   --color11: #F7C13C;
-  --color12: #E9C601;
-  --color13: #17E1C7;
-  --color14: #9FB2D1;
+  --color12: #D5D2D2;
+  --color13: #C96CF5;
+  --color14: hsl(217, 35%, 72%);
 
 /* fonts */
   --font-h1: 3rem 'Knewave', sans-serif;
@@ -39,8 +39,8 @@ body, html {
   --font-h5: 1rem 'Knewave', sans-serif;
   --font-border: 2px var(--color01);
 
-/* Borde Shadow */
-  --border: 5px solid var(--color01);
+/* Border Shadow */
+  --border: 3px solid var(--color01);
   --box-shadow: inset 0 1px 10px var(--color01);
   --box-shadow2: 0 5px 20px var(--color01);
 }
@@ -66,7 +66,7 @@ body, html {
  * ----------------------------------------------------------------------------------------
  */
 /* Major */
- #MobilePage1, #MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5, #MobilePage6 {
+ #MobilePage1, #MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5, #MobilePage6, #MobilePage7, #MobilePage8, #MobilePage9 {
   background-image: linear-gradient(to bottom, var(--color03), var(--color04));
   background-position: center;
   background-repeat: no-repeat;
@@ -79,12 +79,14 @@ body, html {
   width: 100%;
  }
 
- main {
+ #header { margin-bottom: 2rem;}
+
+ #main {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 
-footer {
+#footer {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -94,11 +96,9 @@ footer {
   text-align: center;
 }
 
-#Goblin {
-  margin-top: 3rem;
-}
-
 /* Minor */
+
+/* Background */
 .l-absolute {
   position: absolute;
   margin-left: auto;
@@ -106,9 +106,6 @@ footer {
   left: 0;
   right: 0;
   text-align: center;
-}
-.l-center {
-  top:250px;
 }
 
 .l-cloud{
@@ -119,30 +116,68 @@ footer {
   top: 425px;
   z-index: -1;
 }
-  
-.l-tittle {  
-  background-image: url(assets/image/TittleBackground.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.l-collumn1 {
-  column-count: 1;
-  align-items: center;
  
-}
-
+/* Menu */
 .l-collumn2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  margin-top: 2rem;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .l-collumn3 {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
+  text-align: center;
   align-items: center;
+  margin-top: 0.5rem;
 }
+
+/* Page 01 */ 
+.btn-newgame { top: 250px;}
+
+/* Page 02 */ 
+.input { 
+  position: relative;
+  text-align: center;
+  top: 200px;
+  height: 55px;
+  width: 200px;
+  margin-bottom: 0.1rem;
+ 
+  color: var(--color02);
+  background-image: url('assets/image/Wood2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  -webkit-text-stroke: var(--font-border);
+  border: 2px solid var(--color01);
+  box-shadow: var(--box-shadow2);
+  font: var(--font-h4);
+}
+
+::placeholder { color: var(--color12)}
+
+.btn-enter { top: 200px;}
+
+/* Page 03 */
+/* Page 04 */
+/* Page 05 */
+
+/* Page 06 */
+.btn-weapon, .btn-shield, .btn-helmet, .btn-armor, .btn-boots, .btn-ring { margin-bottom: 1rem;}
+
+/* Page 07 */
+
+
+/* Page 08 */
+.img-goblin, .img-skeleton  {
+  margin-top: 1rem;
+}
+
+
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -155,17 +190,22 @@ footer {
  * State
  * ----------------------------------------------------------------------------------------
  */
-#MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5, #MobilePage6 {
-  display: none
+
+#MobilePage2, #MobilePage3, #MobilePage4, #MobilePage5, #MobilePage6, #MobilePage7, #MobilePage8, #MobilePage9  {
+  display: none;
  }
 
- #MobilePage1.hidden, #MobilePage2.hidden, #MobilePage3.hidden, #MobilePage4.hidden, #MobilePage5.hidden, #MobilePage6.hidden {
-  display: none ;
-}
-
- #MobilePage1.show, #MobilePage2.show, #MobilePage3.show, #MobilePage4.show, #MobilePage5.show, #MobilePage6.show {
+ #MobilePage1.show, #MobilePage2.show, #MobilePage3.show, #MobilePage4.show, #MobilePage5.show, 
+ #MobilePage6.show, #MobilePage7.show, #MobilePage8.show, #MobilePage9.show {
   display: block ;
 }
+
+.button:hover  {color: var(--color12)}
+
+.button:active {transform: translateY(4px);}
+
+.btn-fight.hidden { display: none  }
+.btn-upgrade.hidden { display: none  }
 
 .box { background-color: var(--color02);}
 
@@ -174,12 +214,6 @@ footer {
 .steel { background-color: var(--color10);}
 
 .gold { background-color: var(--color11);} 
-
-.topaz { background-color: var(--color12);}
-
-.emerald { background-color: var(--color13);}
-
-.diamond { background-color: var(--color14);}
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -201,35 +235,34 @@ footer {
   margin-top: 1rem;
 }
 
-.btn-exlarge {
-  font: var(--font-h3);
-  margin-bottom: 1rem;
-  width: 200px;
+.btn-small {
+  font: var(--font-h5);
+  width: 80px;
+  height: 40px;
+}
+
+.btn-medium {
+  font: var(--font-h4);
+  width: 100px;
+  height: 40px;
 }
 
 .btn-large {
   font: var(--font-h3);
+  margin-bottom: 0.25rem;
+  height: 55px;
   width: 200px;
-}
-
-.btn-medium {
-  font: var(--font-h3);
-  width: 150px;
-}
-
-.btn-small {
-  font: var(--font-h4);
-  width: 100px;
-  height: 40px;
 }
 
 /* Box */
 .box {
   border: var(--border);
   box-shadow: var(--box-shadow);
-  padding: 0.1rem;
-  width: 50px;
-  height: 50px;
+  padding: 0.2rem;
+  width: 65px;
+  height: 65px;
+  border-radius: 8rem;
+  background-color: var(--color13);
 }
 
 /* Bar */
@@ -237,29 +270,22 @@ footer {
   border: var(--border);
   box-shadow: var(--box-shadow);
   width: 200px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  font: var(--font-h5);
+  border-radius: 1rem;
 }
 
-.b-coin {
+.b-coin{
   background-color: var(--color06);
 }
 
-.b-life{
+.b-hero{
   background-color: var(--color07);
-}
-
-.bar-coin2, .bar-life2  {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.bar-coin2 {
-margin-top: 1rem;
 }
 
 .b-monster{
   background-color: var(--color08);
-  margin-left: auto;
-  margin-right: auto;
-  width: 200px;
-  margin-bottom: 1rem;
 }

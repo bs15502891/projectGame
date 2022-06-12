@@ -1,373 +1,523 @@
 /**
  * ----------------------------------------------------------------------------------------
- * Page1
+ * Variables
+ * ----------------------------------------------------------------------------------------
+ */
+/*Equips*/
+const heroEquips = {
+  heroHELMET: 1,
+  heroARMOR: 1,
+  heroBOOTS: 1,
+  heroWEAPON: 1,
+  heroSHIELD: 1,
+  heroRING: 1
+}
+
+/*Knight*/
+const knightStatus = {
+  knightHP: 100,
+  knightATT: 10,
+  knightDEF: 10,
+  knightCOIN: 10
+}
+const knightAttributes = {
+  knightSTR: 1,
+  knightINT: 1,
+  knightDEX: 1,
+  knightVIT: 1
+}
+
+/*Archer*/
+const archerStatus = {
+  archerHP: 100,
+  archerATT: 10,
+  archerDEF: 10,
+  archerCOIN: 10
+}
+
+const archerAttributes = {
+  archerSTR: 1,
+  archerINT: 1,
+  archerDEX: 1,
+  archerVIT: 1
+}
+
+/*Assassin*/
+const assassinStatus = {
+  assassinHP: 100,
+  assassinATT: 10,
+  assassinDEF: 10,
+  assassinCOIN: 10
+}
+
+const assassinAttributes = {
+  assassinSTR: 1,
+  assassinINT: 1,
+  assassinDEX: 1,
+  assassinVIT: 1
+}
+
+/*Mage*/
+const mageStatus = {
+  mageHP: 100,
+  mageATT: 10,
+  mageDEF: 10,
+  mageCOIN: 10
+}
+
+const mageAttributes = {
+  mageSTR: 1,
+  mageINT: 1,
+  mageDEX: 1,
+  mageVIT: 1
+}
+
+/*Goblin*/
+const goblinStatus = {
+  goblinHP: 100
+}
+const skeletonStatus = {
+  skeletonHP: 150
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Page1 NEWGAME
  * ----------------------------------------------------------------------------------------
  */
 /* Change page*/
 const page1 = document.querySelector('#MobilePage1')
-const newgame = document.querySelector('#MobilePage1 .newgame')
+const newgame = document.querySelector('#MobilePage1 .btn-newgame')
 
 newgame.addEventListener('click', function () {
-  page1.classList.toggle('hidden')
+  page1.classList.toggle('show')
   page2.classList.toggle('show')
 })
 
 /**
  * ----------------------------------------------------------------------------------------
- * Page2
+ * Page2 LOGIN
  * ----------------------------------------------------------------------------------------
  */
 /* Change page*/
 const page2 = document.querySelector('#MobilePage2')
-const btnknight = document.querySelector('#MobilePage2 .btn-knight')
-const back2 = document.querySelector('#MobilePage2 footer .back')
+const btnenter = document.querySelector('#MobilePage2 .btn-enter')
+const login = document.querySelector('#Login')
+const password = document.querySelector('#Password')
 
-btnknight.addEventListener('click', function () {
-  page2.classList.toggle('hidden')
-  page3.classList.toggle('show')
+btnenter.addEventListener('click', function () {
+  if (
+    (login.value === '' && password.value === '') ||
+    (login.value === 'lang' && password.value === '1234') ||
+    (login.value === 'jones' && password.value === '1234')
+  ) {
+    page2.classList.toggle('show')
+    page3.classList.toggle('show')
+  } else {
+    login.value = 'Incorrect'
+    password.value = 'Incorrect'
+  }
 })
-back2.addEventListener('click', function () {
-  page2.classList.toggle('show')
-  page1.classList.toggle('hidden')
-})
+
 /**
  * ----------------------------------------------------------------------------------------
- * Page3
+ * Page3 CHOOSE
  * ----------------------------------------------------------------------------------------
  */
 
-/* Change page*/
+/* Change Page*/
 const page3 = document.querySelector('#MobilePage3')
-const next3 = document.querySelector('#MobilePage3 footer .next')
-const back3 = document.querySelector('#MobilePage3 footer .back')
+const btnknight = document.querySelector('#MobilePage3 .btn-knight')
+const btnarcher = document.querySelector('#MobilePage3 .btn-archer')
+const btnassassin = document.querySelector('#MobilePage3 .btn-assassin')
+const btnmage = document.querySelector('#MobilePage3 .btn-mage')
+const back3 = document.querySelector('#MobilePage3 footer .btn-back')
+const imghero4 = document.querySelector('#MobilePage4 .img-hero')
+const imghero5 = document.querySelector('#MobilePage5 .img-hero')
 
-next3.addEventListener('click', function () {
-  page3.classList.toggle('hidden')
-  page4.classList.toggle('show')
+btnknight.addEventListener('click', () => {
+  chooseHeroFunction()
+  knightImg()
+  knightStatusAttributes()
 })
+btnarcher.addEventListener('click', () => {
+  chooseHeroFunction()
+  archertImg()
+  archerStatusAttributes()
+})
+btnassassin.addEventListener('click', () => {
+  chooseHeroFunction()
+  assassinImg()
+  assassinStatusAttributes()
+})
+btnmage.addEventListener('click', () => {
+  chooseHeroFunction()
+  mageImg()
+  mageStatusAttributes()
+})
+
 back3.addEventListener('click', function () {
   page3.classList.toggle('show')
+  page2.classList.toggle('show')
 })
 
-const btnhelmet = document.querySelector('#btn-helmet')
-const btnarmor = document.querySelector('#btn-armor')
-const btnboots = document.querySelector('#btn-boots')
-const btnweapon = document.querySelector('#btn-weapon')
-const btnshield = document.querySelector('#btn-shield')
-const btnring = document.querySelector('#btn-ring')
+function chooseHeroFunction() {
+  page3.classList.toggle('show')
+  page4.classList.toggle('show')
+}
 
-btnhelmet.addEventListener('click', helmetFunction)
-btnarmor.addEventListener('click', armorFunction)
-btnboots.addEventListener('click', bootsFunction)
-btnweapon.addEventListener('click', weaponFunction)
-btnshield.addEventListener('click', shieldFunction)
-btnring.addEventListener('click', ringFunction)
+/* Change Image Hero*/
+function knightImg() {
+  imghero4.src = 'assets/image/Knight.svg'
+  imghero5.src = 'assets/image/Knight.svg'
+}
+function archertImg() {
+  imghero4.src = 'assets/image/Archer.svg'
+  imghero5.src = 'assets/image/Archer.svg'
+}
+function assassinImg() {
+  imghero4.src = 'assets/image/Assassin.svg'
+  imghero5.src = 'assets/image/Assassin.svg'
+}
+function mageImg() {
+  imghero4.src = 'assets/image/Mage.svg'
+  imghero5.src = 'assets/image/Mage.svg'
+}
 
-let helmetclick = 0
-let armorclick = 0
-let bootsclick = 0
-let weaponclick = 0
-let shieldclick = 0
-let ringclick = 0
+const herohp3 = document.querySelector('#MobilePage5 .heroHP')
+const heroatt3 = document.querySelector('#MobilePage5 .heroATT')
+const herodef3 = document.querySelector('#MobilePage5 .heroDEF')
+const herocoin3 = document.querySelector('#MobilePage5 .heroCOIN')
 
-function helmetFunction() {
-  helmetclick += 1
-  if (helmetclick == 1) {
-    imghelmet.style.background = 'var(--color09)'
-  }
-  if (helmetclick == 2) {
-    imghelmet.style.background = 'var(--color10)'
-  }
-  if (helmetclick == 3) {
-    imghelmet.style.background = 'var(--color11)'
-  }
-  if (helmetclick == 4) {
-    imghelmet.style.background = 'var(--color12)'
-  }
-  if (helmetclick == 5) {
-    imghelmet.style.background = 'var(--color13)'
-  }
-  if (helmetclick == 6) {
-    imghelmet.style.background = 'var(--color14)'
-  }
+const herostr = document.querySelector('#MobilePage7 .heroSTR')
+const heroint = document.querySelector('#MobilePage7 .heroINT')
+const herodex = document.querySelector('#MobilePage7 .heroDEX')
+const herovit = document.querySelector('#MobilePage7 .heroVIT')
+
+/*Put Hero Status and Attributes*/
+function knightStatusAttributes() {
+  herohp3.innerHTML = `${knightStatus.knightHP}`
+  heroatt3.innerHTML = `${knightStatus.knightATT}`
+  herodef3.innerHTML = `${knightStatus.knightDEF}`
+  herocoin3.innerHTML = `${knightStatus.knightCOIN}`
+  herostr.innerHTML = `${knightAttributes.knightSTR}`
+  heroint.innerHTML = `${knightAttributes.knightINT}`
+  herodex.innerHTML = `${knightAttributes.knightDEX}`
+  herovit.innerHTML = `${knightAttributes.knightVIT}`
 }
-function armorFunction() {
-  armorclick += 1
-  if (armorclick == 1) {
-    imgarmor.style.background = 'var(--color09)'
-  }
-  if (armorclick == 2) {
-    imgarmor.style.background = 'var(--color10)'
-  }
-  if (armorclick == 3) {
-    imgarmor.style.background = 'var(--color11)'
-  }
-  if (armorclick == 4) {
-    imgarmor.style.background = 'var(--color12)'
-  }
-  if (armorclick == 5) {
-    imgarmor.style.background = 'var(--color13)'
-  }
-  if (armorclick == 6) {
-    imgarmor.style.background = 'var(--color14)'
-  }
+
+function archerStatusAttributes() {
+  herohp3.innerHTML = `${archerStatus.archerHP}`
+  heroatt3.innerHTML = `${archerStatus.archerATT}`
+  herodef3.innerHTML = `${archerStatus.archerDEF}`
+  herocoin3.innerHTML = `${archerStatus.archerCOIN}`
+  herostr.innerHTML = `${archerAttributes.archerSTR}`
+  heroint.innerHTML = `${archerAttributes.archerINT}`
+  herodex.innerHTML = `${archerAttributes.archerDEX}`
+  herovit.innerHTML = `${archerAttributes.archerVIT}`
 }
-function bootsFunction() {
-  bootsclick += 1
-  if (bootsclick == 1) {
-    imgboots.style.background = 'var(--color09)'
-  }
-  if (bootsclick == 2) {
-    imgboots.style.background = 'var(--color10)'
-  }
-  if (bootsclick == 3) {
-    imgboots.style.background = 'var(--color11)'
-  }
-  if (bootsclick == 4) {
-    imgboots.style.background = 'var(--color12)'
-  }
-  if (bootsclick == 5) {
-    imgboots.style.background = 'var(--color13)'
-  }
-  if (bootsclick == 6) {
-    imgboots.style.background = 'var(--color14)'
-  }
+function assassinStatusAttributes() {
+  herohp3.innerHTML = `${assassinStatus.assassinHP}`
+  heroatt3.innerHTML = `${assassinStatus.assassinATT}`
+  herodef3.innerHTML = `${assassinStatus.assassinDEF}`
+  herocoin3.innerHTML = `${assassinStatus.assassinCOIN}`
+  herostr.innerHTML = `${assassinAttributes.assassinSTR}`
+  heroint.innerHTML = `${assassinAttributes.assassinINT}`
+  herodex.innerHTML = `${assassinAttributes.assassinDEX}`
+  herovit.innerHTML = `${assassinAttributes.assassinVIT}`
 }
-function weaponFunction() {
-  weaponclick += 1
-  if (weaponclick == 1) {
-    imgweapon.style.background = 'var(--color09)'
-  }
-  if (weaponclick == 2) {
-    imgweapon.style.background = 'var(--color10)'
-  }
-  if (weaponclick == 3) {
-    imgweapon.style.background = 'var(--color11)'
-  }
-  if (weaponclick == 4) {
-    imgweapon.style.background = 'var(--color12)'
-  }
-  if (weaponclick == 5) {
-    imgweapon.style.background = 'var(--color13)'
-  }
-  if (weaponclick == 6) {
-    imgweapon.style.background = 'var(--color14)'
-  }
-}
-function shieldFunction() {
-  shieldclick += 1
-  if (shieldclick == 1) {
-    imgshield.style.background = 'var(--color09)'
-  }
-  if (shieldclick == 2) {
-    imgshield.style.background = 'var(--color10)'
-  }
-  if (shieldclick == 3) {
-    imgshield.style.background = 'var(--color11)'
-  }
-  if (shieldclick == 4) {
-    imgshield.style.background = 'var(--color12)'
-  }
-  if (shieldclick == 5) {
-    imgshield.style.background = 'var(--color13)'
-  }
-  if (shieldclick == 6) {
-    imgshield.style.background = 'var(--color14)'
-  }
-}
-function ringFunction() {
-  ringclick += 1
-  if (ringclick == 1) {
-    imgring.style.background = 'var(--color09)'
-  }
-  if (ringclick == 2) {
-    imgring.style.background = 'var(--color10)'
-  }
-  if (ringclick == 3) {
-    imgring.style.background = 'var(--color11)'
-  }
-  if (ringclick == 4) {
-    imgring.style.background = 'var(--color12)'
-  }
-  if (ringclick == 5) {
-    imgring.style.background = 'var(--color13)'
-  }
-  if (ringclick == 6) {
-    imgring.style.background = 'var(--color14)'
-  }
+function mageStatusAttributes() {
+  herohp3.innerHTML = `${mageStatus.mageHP}`
+  heroatt3.innerHTML = `${mageStatus.mageATT}`
+  herodef3.innerHTML = `${mageStatus.mageDEF}`
+  herocoin3.innerHTML = `${mageStatus.mageCOIN}`
+  herostr.innerHTML = `${mageAttributes.mageSTR}`
+  heroint.innerHTML = `${mageAttributes.mageINT}`
+  herodex.innerHTML = `${mageAttributes.mageDEX}`
+  herovit.innerHTML = `${mageAttributes.mageVIT}`
 }
 
 /**
  * ----------------------------------------------------------------------------------------
- * Page4
+ * Page4 HERO
  * ----------------------------------------------------------------------------------------
  */
 /* Change page*/
 const page4 = document.querySelector('#MobilePage4')
-const next4 = document.querySelector('#MobilePage4 footer .next')
-const back4 = document.querySelector('#MobilePage4 footer .back')
+const status4 = document.querySelector('#MobilePage4 .btn-status')
+const equips4 = document.querySelector('#MobilePage4 .btn-equips')
+const attributes4 = document.querySelector('#MobilePage4 .btn-attributes')
+const nivel4 = document.querySelector('#MobilePage4 .btn-nivel')
+const reset4 = document.querySelector('#MobilePage4 footer .btn-reset')
 
-next4.addEventListener('click', function () {
-  page4.classList.toggle('hidden')
+status4.addEventListener('click', function () {
+  page4.classList.toggle('show')
   page5.classList.toggle('show')
 })
-back4.addEventListener('click', function () {
+
+equips4.addEventListener('click', function () {
   page4.classList.toggle('show')
+  page6.classList.toggle('show')
 })
 
-/* Upgrade Status */
-const btnstr = document.querySelector('#btn-str')
-const btnint = document.querySelector('#btn-int')
-const btndex = document.querySelector('#btn-dex')
-const btnvit = document.querySelector('#btn-vit')
-const btncoin = document.querySelector('#btn-coin')
-const btnlife = document.querySelector('#btn-life')
+attributes4.addEventListener('click', function () {
+  page4.classList.toggle('show')
+  page7.classList.toggle('show')
+})
 
-btnstr.addEventListener('click', strFunction)
-btnint.addEventListener('click', intFunction)
-btndex.addEventListener('click', dexFunction)
-btnvit.addEventListener('click', vitFunction)
-btncoin.addEventListener('click', coinFunction)
-btnlife.addEventListener('click', lifeFunction)
+let nivelCount = 2
+nivel4.addEventListener('click', function () {
+  if (nivelCount === 2) {
+    page4.classList.toggle('show')
+    page8.classList.toggle('show')
+    nivel4.innerHTML = 'NIVEL2'
+  }
+  if (nivelCount === 3) {
+    page4.classList.toggle('show')
+    page9.classList.toggle('show')
+    nivel4.innerHTML = 'NIVEL3'
+  }
+  nivelCount += 1
+})
 
-let strclick = 0
-let intclick = 0
-let dexclick = 0
-let vitclick = 0
-let coinclick = 0
-let lifeclick = 0
-
-function strFunction() {
-  strclick += 1
-  if (strclick == 1) {
-    document.getElementById('sstr').innerHTML = 02
-  }
-  if (strclick == 2) {
-    document.getElementById('sstr').innerHTML = 03
-  }
-  if (strclick == 3) {
-    document.getElementById('sstr').innerHTML = 04
-  }
-  if (strclick == 4) {
-    document.getElementById('sstr').innerHTML = 05
-  }
-}
-function intFunction() {
-  intclick += 1
-  if (intclick == 1) {
-    document.getElementById('sint').innerHTML = 02
-  }
-  if (intclick == 2) {
-    document.getElementById('sint').innerHTML = 03
-  }
-  if (intclick == 3) {
-    document.getElementById('sint').innerHTML = 04
-  }
-  if (intclick == 4) {
-    document.getElementById('sint').innerHTML = 05
-  }
-}
-function dexFunction() {
-  dexclick += 1
-  if (dexclick == 1) {
-    document.getElementById('sdex').innerHTML = 02
-  }
-  if (dexclick == 2) {
-    document.getElementById('sdex').innerHTML = 03
-  }
-  if (dexclick == 3) {
-    document.getElementById('sdex').innerHTML = 04
-  }
-  if (dexclick == 4) {
-    document.getElementById('sdex').innerHTML = 05
-  }
-}
-function vitFunction() {
-  vitclick += 1
-  if (vitclick == 1) {
-    document.getElementById('svit').innerHTML = 02
-  }
-  if (vitclick == 2) {
-    document.getElementById('svit').innerHTML = 03
-  }
-  if (vitclick == 3) {
-    document.getElementById('svit').innerHTML = 04
-  }
-  if (vitclick == 4) {
-    document.getElementById('svit').innerHTML = 05
-  }
-}
-function coinFunction() {
-  coinclick += 1
-  if (coinclick == 1) {
-    document.getElementById('scoin').innerHTML = 02
-  }
-  if (coinclick == 2) {
-    document.getElementById('scoin').innerHTML = 03
-  }
-  if (coinclick == 3) {
-    document.getElementById('scoin').innerHTML = 04
-  }
-  if (coinclick == 4) {
-    document.getElementById('scoin').innerHTML = 05
-  }
-}
-function lifeFunction() {
-  btnlife.style.background = 'var(--color01)'
-}
+reset4.addEventListener('click', function () {
+  location.reload()
+})
 
 /**
  * ----------------------------------------------------------------------------------------
- * Page5
+ * Page5 STATUS
  * ----------------------------------------------------------------------------------------
  */
 /* Change page*/
 const page5 = document.querySelector('#MobilePage5')
-const next5 = document.querySelector('#MobilePage5 footer .next')
-const back5 = document.querySelector('#MobilePage5 footer .back')
+const back5 = document.querySelector('#MobilePage5 footer .btn-back')
 
-next5.addEventListener('click', function () {
-  page5.classList.toggle('hidden')
-  page6.classList.toggle('show')
-})
 back5.addEventListener('click', function () {
   page5.classList.toggle('show')
+  page4.classList.toggle('show')
 })
+
 /**
  * ----------------------------------------------------------------------------------------
- * Page6
+ * Page6 EQUIPS
  * ----------------------------------------------------------------------------------------
  */
 /* Change page*/
 const page6 = document.querySelector('#MobilePage6')
-const back6 = document.querySelector('#MobilePage6 footer .back')
+const back6 = document.querySelector('#MobilePage6 footer .btn-back')
 
 back6.addEventListener('click', function () {
   page6.classList.toggle('show')
+  page4.classList.toggle('show')
 })
 
-/* Attack Monster*/
-const goblinHurt = document.querySelector('#Goblin')
-const goblinLife = document.querySelector('#GoblinLife')
-let goblinLife1 = 500
-const btn = document.querySelector('#Goblin')
+/* Esquips Upgrade*/
+const btnhelmet = document.querySelector('#MobilePage6 .btn-helmet')
+const btnweapon = document.querySelector('#MobilePage6 .btn-weapon')
+const btnarmor = document.querySelector('#MobilePage6 .btn-armor')
+const btnshield = document.querySelector('#MobilePage6 .btn-shield')
+const btnboots = document.querySelector('#MobilePage6 .btn-boots')
+const btnring = document.querySelector('#MobilePage6 .btn-ring')
 
-btn.addEventListener('mousedown', function () {
-  goblinHurt.src = 'assets/image/GoblinHurt.svg'
+btnhelmet.addEventListener('click', helmetUpgrade)
+btnweapon.addEventListener('click', weaponUpgrade)
+btnarmor.addEventListener('click', armorUpgrade)
+btnshield.addEventListener('click', shieldUpgrade)
+btnboots.addEventListener('click', bootsUpgrade)
+btnring.addEventListener('click', ringUpgrade)
+
+const herohelmet = document.querySelector('#MobilePage6 .heroHELMET')
+const heroweapon = document.querySelector('#MobilePage6 .heroWEAPON')
+const heroarmor = document.querySelector('#MobilePage6 .heroARMOR')
+const heroshield = document.querySelector('#MobilePage6 .heroSHIELD')
+const heroboots = document.querySelector('#MobilePage6 .heroBOOTS')
+const heroring = document.querySelector('#MobilePage6 .heroRING')
+
+function helmetUpgrade() {
+  if (heroEquips.heroHELMET === 1) {
+    herohelmet.style.background = 'var(--color09)'
+  }
+  if (heroEquips.heroHELMET === 2) {
+    herohelmet.style.background = 'var(--color10)'
+  }
+  if (heroEquips.heroHELMET == 3) {
+    herohelmet.style.background = 'var(--color11)'
+  }
+  heroEquips.heroHELMET += 1
+}
+function weaponUpgrade() {
+  if (heroEquips.heroWEAPON === 1) {
+    heroweapon.style.background = 'var(--color09)'
+  }
+  if (heroEquips.heroWEAPON === 2) {
+    heroweapon.style.background = 'var(--color10)'
+  }
+  if (heroEquips.heroWEAPON == 3) {
+    heroweapon.style.background = 'var(--color11)'
+  }
+  heroEquips.heroWEAPON += 1
+}
+function armorUpgrade() {
+  if (heroEquips.heroARMOR === 1) {
+    heroarmor.style.background = 'var(--color09)'
+  }
+  if (heroEquips.heroARMOR === 2) {
+    heroarmor.style.background = 'var(--color10)'
+  } else if (heroEquips.heroARMOR == 3) {
+    heroarmor.style.background = 'var(--color11)'
+  }
+  heroEquips.heroARMOR += 1
+}
+function shieldUpgrade() {
+  if (heroEquips.heroSHIELD === 1) {
+    heroshield.style.background = 'var(--color09)'
+  }
+  if (heroEquips.heroSHIELD === 2) {
+    heroshield.style.background = 'var(--color10)'
+  } else if (heroEquips.heroSHIELD == 3) {
+    heroshield.style.background = 'var(--color11)'
+  }
+  heroEquips.heroSHIELD += 1
+}
+function bootsUpgrade() {
+  if (heroEquips.heroBOOTS === 1) {
+    heroboots.style.background = 'var(--color09)'
+  }
+  if (heroEquips.heroBOOTS === 2) {
+    heroboots.style.background = 'var(--color10)'
+  } else if (heroEquips.heroBOOTS == 3) {
+    heroboots.style.background = 'var(--color11)'
+  }
+  heroEquips.heroBOOTS += 1
+}
+function ringUpgrade() {
+  if (heroEquips.heroRING === 1) {
+    heroring.style.background = 'var(--color09)'
+  }
+  if (heroEquips.heroRING === 2) {
+    heroring.style.background = 'var(--color10)'
+  } else if (heroEquips.heroRING == 3) {
+    heroring.style.background = 'var(--color11)'
+  }
+  heroEquips.heroRING += 1
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Page7 ATTRIBUTES
+ * ----------------------------------------------------------------------------------------
+ */
+/* Change page*/
+const page7 = document.querySelector('#MobilePage7')
+const back7 = document.querySelector('#MobilePage7 footer .btn-back')
+
+back7.addEventListener('click', function () {
+  page7.classList.toggle('show')
+  page4.classList.toggle('show')
 })
 
-btn.addEventListener('mouseup', function () {
-  goblinHurt.src = 'assets/image/Goblin.svg'
+/**
+ * ----------------------------------------------------------------------------------------
+ * Page08 FIGHT
+ * ----------------------------------------------------------------------------------------
+ */
+/* Change page*/
+const page8 = document.querySelector('#MobilePage8')
+const fight8 = document.querySelector('#MobilePage8 footer .btn-fight')
+const upgrade8 = document.querySelector('#MobilePage8 footer .btn-upgrade')
+const herocoin8 = document.querySelector('#MobilePage8 .heroCOIN')
+const herohp8 = document.querySelector('#MobilePage8 .heroHP')
+const goblinhp8 = document.querySelector('#MobilePage8 .goblinHP')
+
+let clickFight1 = 1
+fight8.addEventListener('click', function () {
+  if (clickFight1 === 1) {
+    herocoin8.innerHTML = `${knightStatus.knightCOIN}`
+    herohp8.innerHTML = `${knightStatus.knightHP}`
+    goblinhp8.innerHTML = `${goblinStatus.goblinHP}`
+    fight8.classList.toggle('hidden')
+  }
+  clickFight1 += 1
 })
 
-/* Damage Life*/
-btn.addEventListener('click', function () {
-  if (goblinLife1 !== 0) {
-    goblinLife1 -= 10
-    let i = `${goblinLife1}`
-    goblinLife.innerText = `${i}`
-  } else {
-    goblinHurt.src = 'assets/image/GoblinDead.svg'
-    goblinLife.innerText = '0'
+upgrade8.addEventListener('click', function () {
+  page8.classList.toggle('show')
+  page4.classList.toggle('show')
+})
+
+/* Fight*/
+const imggoblin8 = document.querySelector('#MobilePage8 .img-goblin')
+const infattack8 = document.querySelector('#MobilePage8 .inf-attack')
+
+imggoblin8.addEventListener('click', function () {
+  if (clickFight1 === 2 && goblinStatus.goblinHP > 0) {
+    goblinStatus.goblinHP -= 10
+    knightStatus.knightHP -= 5
+    goblinhp8.innerText = `${goblinStatus.goblinHP}`
+    herohp8.innerText = `${knightStatus.knightHP}`
+  }
+  if (goblinStatus.goblinHP === 0) {
+    goblinStatus.goblinHP = 'Defeat'
+    imggoblin8.src = 'assets/image/GoblinDead.svg'
+    imggoblin8.style.transform = 'translateY(60px)'
+
+    knightStatus.knightCOIN += 50
+    herocoin8.innerHTML = `${knightStatus.knightCOIN}`
+    infattack8.innerHTML = 'WIN'
+    upgrade8.classList.toggle('hidden')
+  }
+})
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Page09 FIGHT2
+ * ----------------------------------------------------------------------------------------
+ */
+/* Change page*/
+const page9 = document.querySelector('#MobilePage9')
+const fight9 = document.querySelector('#MobilePage9 footer .btn-fight')
+const upgrade9 = document.querySelector('#MobilePage9 footer .btn-upgrade')
+const herocoin9 = document.querySelector('#MobilePage9 .heroCOIN')
+const herohp9 = document.querySelector('#MobilePage9 .heroHP')
+const skeletonhp9 = document.querySelector('#MobilePage9 .skeletonHP')
+
+let clickFight2 = 1
+
+fight9.addEventListener('click', function () {
+  if (clickFight2 === 1) {
+    herocoin9.innerHTML = `${knightStatus.knightCOIN}`
+    herohp9.innerHTML = `${knightStatus.knightHP}`
+    skeletonhp9.innerHTML = `${skeletonStatus.skeletonHP}`
+    fight9.classList.toggle('hidden')
+  }
+  clickFight2 += 1
+})
+
+upgrade9.addEventListener('click', function () {
+  page9.classList.toggle('show')
+  page4.classList.toggle('show')
+})
+
+/* Fight*/
+const imgskeleton9 = document.querySelector('#MobilePage9 .img-skeleton')
+const infattack9 = document.querySelector('#MobilePage9 .inf-attack')
+
+imgskeleton9.addEventListener('click', function () {
+  if (clickFight2 === 2 && skeletonStatus.skeletonHP > 0) {
+    skeletonStatus.skeletonHP -= 10
+    knightStatus.knightHP -= 5
+    skeletonhp9.innerText = `${skeletonStatus.skeletonHP}`
+    herohp9.innerText = `${knightStatus.knightHP}`
+  }
+  if (skeletonStatus.skeletonHP === 0) {
+    skeletonStatus.skeletonHP = 'Defeat'
+    imgskeleton9.src = 'assets/image/SkeletonDead.svg'
+    imgskeleton9.style.transform = 'translateY(50px)'
+
+    knightStatus.knightCOIN += 50
+    herocoin9.innerHTML = `${knightStatus.knightCOIN}`
+    infattack9.innerHTML = 'WIN'
+    upgrade9.classList.toggle('hidden')
   }
 })
