@@ -215,6 +215,16 @@ body, html {
 
 .gold { background-color: var(--color11);} 
 
+.punch {
+  width:174px;
+  height: 174px;
+  
+    animation: punch steps(4) 0.15s infinite; 
+}
+
+
+
+
 /**
  * ----------------------------------------------------------------------------------------
  * Theme

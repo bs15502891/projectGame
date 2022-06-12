@@ -6,17 +6,12 @@
 const mp3BackgroundSong = new Audio('assets/song/BackgroundSong.mp3')
 const clickButton = new Audio('assets/song/ClickButton.wav')
 const mp3Punch = new Audio('assets/song/Punch.mp3')
-const mp3Battle = new Audio('assets/song/Battle.mp3')
-const mp3YouWin = new Audio('assets/song/YouWin.mp3')
 
 mp3BackgroundSong.loop = 'loop'
 
 mp3BackgroundSong.volume = 0.01
 clickButton.volume = 0.05
-mp3Battle.volume = 0.1
 mp3Punch.volume = 0.1
-mp3YouWin.volume = 0.1
-
 /**
  * ----------------------------------------------------------------------------------------
  * Variables
@@ -475,8 +470,6 @@ fight8.addEventListener('click', function () {
     herohp8.innerHTML = `${knightStatus.knightHP}`
     goblinhp8.innerHTML = `${goblinStatus.goblinHP}`
     fight8.classList.toggle('hidden')
-    mp3BackgroundSong.pause()
-    mp3Battle.play()
   }
   clickFight1 += 1
 })
@@ -485,8 +478,31 @@ upgrade8.addEventListener('click', function () {
   page8.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
-  mp3BackgroundSong.play()
 })
+
+function goblinPunch() {
+  setTimeout(function () {
+    imggoblin8.src = 'assets/image/7.svg'
+  }, 0000)
+  setTimeout(function () {
+    imggoblin8.src = 'assets/image/8.svg'
+  }, 0050)
+  setTimeout(function () {
+    imggoblin8.src = 'assets/image/9.svg'
+  }, 0100)
+  setTimeout(function () {
+    imggoblin8.src = 'assets/image/10.svg'
+  }, 0150)
+  setTimeout(function () {
+    imggoblin8.src = 'assets/image/11.svg'
+  }, 0200)
+  setTimeout(function () {
+    imggoblin8.src = 'assets/image/12.svg'
+  }, 0250)
+  setTimeout(function () {
+    imggoblin8.src = 'assets/image/Goblin.svg'
+  }, 0300)
+}
 
 /* Fight*/
 const imggoblin8 = document.querySelector('#MobilePage8 .img-goblin')
@@ -499,20 +515,18 @@ imggoblin8.addEventListener('click', function () {
     goblinhp8.innerText = `${goblinStatus.goblinHP}`
     herohp8.innerText = `${knightStatus.knightHP}`
     mp3Punch.play()
+    goblinPunch()
   }
   if (goblinStatus.goblinHP === 0) {
     goblinStatus.goblinHP = 'Defeat'
-    imggoblin8.src = 'assets/image/GoblinDead.svg'
-    imggoblin8.style.transform = 'translateY(60px)'
-
+    imggoblin8.style.transform = 'translateY(30px)'
     knightStatus.knightCOIN += 50
     herocoin8.innerHTML = `${knightStatus.knightCOIN}`
     infattack8.innerHTML = 'WIN'
     upgrade8.classList.toggle('hidden')
-
-    mp3Battle.pause()
-    mp3Battle.currentTime = 0
-    mp3YouWin.play()
+    setTimeout(function () {
+      imggoblin8.src = 'assets/image/Rip.svg'
+    }, 0301)
   }
 })
 
@@ -537,8 +551,6 @@ fight9.addEventListener('click', function () {
     herohp9.innerHTML = `${knightStatus.knightHP}`
     skeletonhp9.innerHTML = `${skeletonStatus.skeletonHP}`
     fight9.classList.toggle('hidden')
-    mp3BackgroundSong.pause()
-    mp3Battle.play()
   }
   clickFight2 += 1
 })
@@ -547,7 +559,6 @@ upgrade9.addEventListener('click', function () {
   page9.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
-  mp3BackgroundSong.play()
 })
 
 /* Fight*/
@@ -564,15 +575,12 @@ imgskeleton9.addEventListener('click', function () {
   }
   if (skeletonStatus.skeletonHP === 0) {
     skeletonStatus.skeletonHP = 'Defeat'
-    imgskeleton9.src = 'assets/image/SkeletonDead.svg'
-    imgskeleton9.style.transform = 'translateY(50px)'
+    imgskeleton9.src = 'assets/image/Rip.svg'
+    imgskeleton9.style.transform = 'translateY(30px)'
 
     knightStatus.knightCOIN += 50
     herocoin9.innerHTML = `${knightStatus.knightCOIN}`
     infattack9.innerHTML = 'WIN'
     upgrade9.classList.toggle('hidden')
-    mp3Battle.pause()
-    mp3Battle.currentTime = 0
-    mp3YouWin.play()
   }
 })
