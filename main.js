@@ -475,6 +475,7 @@ fight8.addEventListener('click', function () {
     herohp8.innerHTML = `${knightStatus.knightHP}`
     goblinhp8.innerHTML = `${goblinStatus.goblinHP}`
     fight8.classList.toggle('hidden')
+    mp3BackgroundSong.pause()
     mp3Battle.play()
   }
   clickFight1 += 1
@@ -484,6 +485,7 @@ upgrade8.addEventListener('click', function () {
   page8.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
+  mp3BackgroundSong.play()
 })
 
 /* Fight*/
@@ -535,6 +537,7 @@ fight9.addEventListener('click', function () {
     herohp9.innerHTML = `${knightStatus.knightHP}`
     skeletonhp9.innerHTML = `${skeletonStatus.skeletonHP}`
     fight9.classList.toggle('hidden')
+    mp3BackgroundSong.pause()
     mp3Battle.play()
   }
   clickFight2 += 1
@@ -544,6 +547,7 @@ upgrade9.addEventListener('click', function () {
   page9.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
+  mp3BackgroundSong.play()
 })
 
 /* Fight*/
