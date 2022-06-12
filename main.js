@@ -1,13 +1,21 @@
 /**
  * ----------------------------------------------------------------------------------------
- * Songs
+ * Audio
  * ----------------------------------------------------------------------------------------
  */
-
+const mp3BackgroundSong = new Audio('assets/song/BackgroundSong.mp3')
 const clickButton = new Audio('assets/song/ClickButton.wav')
 const mp3Punch = new Audio('assets/song/Punch.mp3')
 const mp3Battle = new Audio('assets/song/Battle.mp3')
 const mp3YouWin = new Audio('assets/song/YouWin.mp3')
+
+mp3BackgroundSong.loop = 'loop'
+
+mp3BackgroundSong.volume = 0.01
+clickButton.volume = 0.05
+mp3Battle.volume = 0.1
+mp3Punch.volume = 0.1
+mp3YouWin.volume = 0.1
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -104,6 +112,7 @@ newgame.addEventListener('click', function () {
   page1.classList.toggle('show')
   page2.classList.toggle('show')
   clickButton.play()
+  mp3BackgroundSong.play()
 })
 
 /**
