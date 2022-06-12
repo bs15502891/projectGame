@@ -1,5 +1,16 @@
 /**
  * ----------------------------------------------------------------------------------------
+ * Songs
+ * ----------------------------------------------------------------------------------------
+ */
+
+const clickButton = new Audio('assets/song/ClickButton.wav')
+const mp3Punch = new Audio('assets/song/Punch.mp3')
+const mp3Battle = new Audio('assets/song/Battle.mp3')
+const mp3YouWin = new Audio('assets/song/YouWin.mp3')
+
+/**
+ * ----------------------------------------------------------------------------------------
  * Variables
  * ----------------------------------------------------------------------------------------
  */
@@ -92,6 +103,7 @@ const newgame = document.querySelector('#MobilePage1 .btn-newgame')
 newgame.addEventListener('click', function () {
   page1.classList.toggle('show')
   page2.classList.toggle('show')
+  clickButton.play()
 })
 
 /**
@@ -113,6 +125,7 @@ btnenter.addEventListener('click', function () {
   ) {
     page2.classList.toggle('show')
     page3.classList.toggle('show')
+    clickButton.play()
   } else {
     login.value = 'Incorrect'
     password.value = 'Incorrect'
@@ -159,11 +172,13 @@ btnmage.addEventListener('click', () => {
 back3.addEventListener('click', function () {
   page3.classList.toggle('show')
   page2.classList.toggle('show')
+  clickButton.play()
 })
 
 function chooseHeroFunction() {
   page3.classList.toggle('show')
   page4.classList.toggle('show')
+  clickButton.play()
 }
 
 /* Change Image Hero*/
@@ -253,16 +268,19 @@ const reset4 = document.querySelector('#MobilePage4 footer .btn-reset')
 status4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page5.classList.toggle('show')
+  clickButton.play()
 })
 
 equips4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page6.classList.toggle('show')
+  clickButton.play()
 })
 
 attributes4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page7.classList.toggle('show')
+  clickButton.play()
 })
 
 let nivelCount = 2
@@ -271,11 +289,13 @@ nivel4.addEventListener('click', function () {
     page4.classList.toggle('show')
     page8.classList.toggle('show')
     nivel4.innerHTML = 'NIVEL2'
+    clickButton.play()
   }
   if (nivelCount === 3) {
     page4.classList.toggle('show')
     page9.classList.toggle('show')
     nivel4.innerHTML = 'NIVEL3'
+    clickButton.play()
   }
   nivelCount += 1
 })
@@ -296,6 +316,7 @@ const back5 = document.querySelector('#MobilePage5 footer .btn-back')
 back5.addEventListener('click', function () {
   page5.classList.toggle('show')
   page4.classList.toggle('show')
+  clickButton.play()
 })
 
 /**
@@ -310,6 +331,7 @@ const back6 = document.querySelector('#MobilePage6 footer .btn-back')
 back6.addEventListener('click', function () {
   page6.classList.toggle('show')
   page4.classList.toggle('show')
+  clickButton.play()
 })
 
 /* Esquips Upgrade*/
@@ -344,6 +366,7 @@ function helmetUpgrade() {
   if (heroEquips.heroHELMET == 3) {
     herohelmet.style.background = 'var(--color11)'
   }
+  clickButton.play()
   heroEquips.heroHELMET += 1
 }
 function weaponUpgrade() {
@@ -356,6 +379,7 @@ function weaponUpgrade() {
   if (heroEquips.heroWEAPON == 3) {
     heroweapon.style.background = 'var(--color11)'
   }
+  clickButton.play()
   heroEquips.heroWEAPON += 1
 }
 function armorUpgrade() {
@@ -367,6 +391,7 @@ function armorUpgrade() {
   } else if (heroEquips.heroARMOR == 3) {
     heroarmor.style.background = 'var(--color11)'
   }
+  clickButton.play()
   heroEquips.heroARMOR += 1
 }
 function shieldUpgrade() {
@@ -378,6 +403,7 @@ function shieldUpgrade() {
   } else if (heroEquips.heroSHIELD == 3) {
     heroshield.style.background = 'var(--color11)'
   }
+  clickButton.play()
   heroEquips.heroSHIELD += 1
 }
 function bootsUpgrade() {
@@ -389,6 +415,7 @@ function bootsUpgrade() {
   } else if (heroEquips.heroBOOTS == 3) {
     heroboots.style.background = 'var(--color11)'
   }
+  clickButton.play()
   heroEquips.heroBOOTS += 1
 }
 function ringUpgrade() {
@@ -400,6 +427,7 @@ function ringUpgrade() {
   } else if (heroEquips.heroRING == 3) {
     heroring.style.background = 'var(--color11)'
   }
+  clickButton.play()
   heroEquips.heroRING += 1
 }
 
@@ -415,6 +443,7 @@ const back7 = document.querySelector('#MobilePage7 footer .btn-back')
 back7.addEventListener('click', function () {
   page7.classList.toggle('show')
   page4.classList.toggle('show')
+  clickButton.play()
 })
 
 /**
@@ -437,6 +466,7 @@ fight8.addEventListener('click', function () {
     herohp8.innerHTML = `${knightStatus.knightHP}`
     goblinhp8.innerHTML = `${goblinStatus.goblinHP}`
     fight8.classList.toggle('hidden')
+    mp3Battle.play()
   }
   clickFight1 += 1
 })
@@ -444,6 +474,7 @@ fight8.addEventListener('click', function () {
 upgrade8.addEventListener('click', function () {
   page8.classList.toggle('show')
   page4.classList.toggle('show')
+  clickButton.play()
 })
 
 /* Fight*/
@@ -456,6 +487,7 @@ imggoblin8.addEventListener('click', function () {
     knightStatus.knightHP -= 5
     goblinhp8.innerText = `${goblinStatus.goblinHP}`
     herohp8.innerText = `${knightStatus.knightHP}`
+    mp3Punch.play()
   }
   if (goblinStatus.goblinHP === 0) {
     goblinStatus.goblinHP = 'Defeat'
@@ -466,6 +498,10 @@ imggoblin8.addEventListener('click', function () {
     herocoin8.innerHTML = `${knightStatus.knightCOIN}`
     infattack8.innerHTML = 'WIN'
     upgrade8.classList.toggle('hidden')
+
+    mp3Battle.pause()
+    mp3Battle.currentTime = 0
+    mp3YouWin.play()
   }
 })
 
@@ -490,6 +526,7 @@ fight9.addEventListener('click', function () {
     herohp9.innerHTML = `${knightStatus.knightHP}`
     skeletonhp9.innerHTML = `${skeletonStatus.skeletonHP}`
     fight9.classList.toggle('hidden')
+    mp3Battle.play()
   }
   clickFight2 += 1
 })
@@ -497,6 +534,7 @@ fight9.addEventListener('click', function () {
 upgrade9.addEventListener('click', function () {
   page9.classList.toggle('show')
   page4.classList.toggle('show')
+  clickButton.play()
 })
 
 /* Fight*/
@@ -509,6 +547,7 @@ imgskeleton9.addEventListener('click', function () {
     knightStatus.knightHP -= 5
     skeletonhp9.innerText = `${skeletonStatus.skeletonHP}`
     herohp9.innerText = `${knightStatus.knightHP}`
+    mp3Punch.play()
   }
   if (skeletonStatus.skeletonHP === 0) {
     skeletonStatus.skeletonHP = 'Defeat'
@@ -519,5 +558,8 @@ imgskeleton9.addEventListener('click', function () {
     herocoin9.innerHTML = `${knightStatus.knightCOIN}`
     infattack9.innerHTML = 'WIN'
     upgrade9.classList.toggle('hidden')
+    mp3Battle.pause()
+    mp3Battle.currentTime = 0
+    mp3YouWin.play()
   }
 })
