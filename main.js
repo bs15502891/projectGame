@@ -1,5 +1,238 @@
 /**
  * ----------------------------------------------------------------------------------------
+ * Image
+ * ----------------------------------------------------------------------------------------
+ */
+const monsterImageList = [
+  0,
+  goblinImage,
+  skeletonImage,
+  centaurImage,
+  wolfImage,
+  reaperImage,
+  golemImage,
+  deadknightImage,
+  pirateImage
+]
+
+function goblinImage() {
+  imgmonster.src = 'assets/image/Goblin.svg'
+}
+
+function skeletonImage() {
+  imgmonster.src = 'assets/image/Skeleton.svg'
+}
+
+function centaurImage() {
+  imgmonster.src = 'assets/image/Centaur.svg'
+}
+
+function wolfImage() {
+  imgmonster.src = 'assets/image/Wolf.svg'
+}
+
+function reaperImage() {
+  imgmonster.src = 'assets/image/Reaper.svg'
+}
+
+function golemImage() {
+  imgmonster.src = 'assets/image/Golem.svg'
+}
+
+function deadknightImage() {
+  imgmonster.src = 'assets/image/DeadKnight.svg'
+}
+
+function pirateImage() {
+  imgmonster.src = 'assets/image/Pirate.svg'
+}
+/**
+ * ----------------------------------------------------------------------------------------
+ * Punch
+ * ----------------------------------------------------------------------------------------
+ */
+const monsterPunchList = [
+  0,
+  goblinPunch,
+  skeletonPunch,
+  centaurPunch,
+  wolfPunch,
+  reaperPunch,
+  golemPunch,
+  deathKnightPunch,
+  piratePunch
+]
+
+function goblinPunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Goblin1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Goblin2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Goblin3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Goblin4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Goblin5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Goblin.svg'
+  }, 0250)
+}
+
+function skeletonPunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Skeleton1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Skeleton2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Skeleton3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Skeleton4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Skeleton5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Skeleton.svg'
+  }, 0250)
+}
+
+function centaurPunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Centaur1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Centaur2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Centaur3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Centaur4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Centaur5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Centaur.svg'
+  }, 0250)
+}
+
+function wolfPunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Wolf1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Wolf2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Wolf3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Wolf4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Wolf5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Wolf.svg'
+  }, 0250)
+}
+
+function reaperPunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Reaper1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Reaper2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Reaper3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Reaper4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Reaper5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Reaper.svg'
+  }, 0250)
+}
+
+function golemPunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Golem1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Golem2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Golem3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Golem4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Golem5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Golem.svg'
+  }, 0250)
+}
+
+function deathKnightPunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/DeadKnight1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/DeadKnight2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/DeadKnight3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/DeadKnight4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/DeadKnight5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/DeadKnight.svg'
+  }, 0250)
+}
+
+function piratePunch() {
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Pirate1.svg'
+  }, 0000)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Pirate2.svg'
+  }, 0050)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Pirate3.svg'
+  }, 0100)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Pirate4.svg'
+  }, 0150)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Pirate5.svg'
+  }, 0200)
+  setTimeout(function () {
+    imgmonster.src = 'assets/image/Pirate.svg'
+  }, 0250)
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
  * Audio
  * ----------------------------------------------------------------------------------------
  */
@@ -12,6 +245,7 @@ mp3BackgroundSong.loop = 'loop'
 mp3BackgroundSong.volume = 0.01
 clickButton.volume = 0.05
 mp3Punch.volume = 0.1
+
 /**
  * ----------------------------------------------------------------------------------------
  * Variables
@@ -86,12 +320,28 @@ const mageAttributes = {
   mageVIT: 1
 }
 
+const monsterHPList = [
+  0,
+  'goblinHP',
+  'skeletonHP',
+  'centaurHP',
+  'wolfHP',
+  'reaperHP',
+  'golemHP',
+  'deadknightP',
+  'pirateHP'
+]
+
 /*Goblin*/
-const goblinStatus = {
-  goblinHP: 100
-}
-const skeletonStatus = {
-  skeletonHP: 150
+const monsterStatus = {
+  goblinHP: 100,
+  skeletonHP: 100,
+  centaurHP: 100,
+  wolfHP: 100,
+  reaperHP: 100,
+  golemHP: 100,
+  deadknightP: 100,
+  pirateHP: 100
 }
 
 /**
@@ -287,21 +537,10 @@ attributes4.addEventListener('click', function () {
   clickButton.play()
 })
 
-let nivelCount = 2
 nivel4.addEventListener('click', function () {
-  if (nivelCount === 2) {
-    page4.classList.toggle('show')
-    page8.classList.toggle('show')
-    nivel4.innerHTML = 'NIVEL2'
-    clickButton.play()
-  }
-  if (nivelCount === 3) {
-    page4.classList.toggle('show')
-    page9.classList.toggle('show')
-    nivel4.innerHTML = 'NIVEL3'
-    clickButton.play()
-  }
-  nivelCount += 1
+  page4.classList.toggle('show')
+  page8.classList.toggle('show')
+  clickButton.play()
 })
 
 reset4.addEventListener('click', function () {
@@ -457,127 +696,81 @@ back7.addEventListener('click', function () {
  */
 /* Change page*/
 const page8 = document.querySelector('#MobilePage8')
-const fight8 = document.querySelector('#MobilePage8 footer .btn-fight')
-const upgrade8 = document.querySelector('#MobilePage8 footer .btn-upgrade')
+const fight8 = document.querySelector('#MobilePage8 .btn-fight')
+const upgrade8 = document.querySelector('#MobilePage8 .btn-upgrade')
+const back8 = document.querySelector('#MobilePage8 footer .btn-back')
+
 const herocoin8 = document.querySelector('#MobilePage8 .heroCOIN')
 const herohp8 = document.querySelector('#MobilePage8 .heroHP')
-const goblinhp8 = document.querySelector('#MobilePage8 .goblinHP')
 
-let clickFight1 = 1
+const monsterhp8 = document.querySelector('#MobilePage8 .monsterHP')
+
+const imgmonster = document.querySelector('#MobilePage8 .img-monster')
+const infattack8 = document.querySelector('#MobilePage8 .inf-attack')
+
+back8.addEventListener('click', function () {
+  page8.classList.toggle('show')
+  page4.classList.toggle('show')
+  clickButton.play()
+})
+/* Fight*/
+
+let nivelFight = 1
+let clickFight = 1
+
 fight8.addEventListener('click', function () {
-  if (clickFight1 === 1) {
+  if (clickFight === 1) {
     herocoin8.innerHTML = `${knightStatus.knightCOIN}`
     herohp8.innerHTML = `${knightStatus.knightHP}`
-    goblinhp8.innerHTML = `${goblinStatus.goblinHP}`
+    monsterhp8.innerHTML = `${
+      monsterStatus[`${monsterHPList[`${nivelFight}`]}`]
+    }`
     fight8.classList.toggle('hidden')
+    back8.classList.toggle('hidden')
   }
-  clickFight1 += 1
+  clickFight += 1
+})
+
+imgmonster.addEventListener('click', function () {
+  if (
+    clickFight === 2 &&
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] > 0
+  ) {
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] -= 10
+    knightStatus.knightHP -= 5
+    monsterhp8.innerText = `${
+      monsterStatus[`${monsterHPList[`${nivelFight}`]}`]
+    }`
+    herohp8.innerText = `${knightStatus.knightHP}`
+    mp3Punch.play()
+    monsterPunchList[`${nivelFight}`]()
+  }
+  if (
+    clickFight === 2 &&
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] === 0
+  ) {
+    monsterhp8.innerText = 'Defeat'
+    infattack8.innerHTML = 'WIN'
+    setTimeout(function () {
+      imgmonster.src = 'assets/image/Rip.svg'
+    }, 0251)
+
+    knightStatus.knightCOIN += 50
+    herocoin8.innerHTML = `${knightStatus.knightCOIN}`
+
+    upgrade8.classList.toggle('hidden')
+    clickFight = 1
+  }
 })
 
 upgrade8.addEventListener('click', function () {
   page8.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
-})
-
-function goblinPunch() {
-  setTimeout(function () {
-    imggoblin8.src = 'assets/image/Goblin1.svg'
-  }, 0000)
-  setTimeout(function () {
-    imggoblin8.src = 'assets/image/Goblin2.svg'
-  }, 0050)
-  setTimeout(function () {
-    imggoblin8.src = 'assets/image/Goblin3.svg'
-  }, 0100)
-  setTimeout(function () {
-    imggoblin8.src = 'assets/image/Goblin4.svg'
-  }, 0150)
-  setTimeout(function () {
-    imggoblin8.src = 'assets/image/Goblin5.svg'
-  }, 0200)
-  setTimeout(function () {
-    imggoblin8.src = 'assets/image/Goblin.svg'
-  }, 0250)
-}
-
-/* Fight*/
-const imggoblin8 = document.querySelector('#MobilePage8 .img-goblin')
-const infattack8 = document.querySelector('#MobilePage8 .inf-attack')
-
-imggoblin8.addEventListener('click', function () {
-  if (clickFight1 === 2 && goblinStatus.goblinHP > 0) {
-    goblinStatus.goblinHP -= 10
-    knightStatus.knightHP -= 5
-    goblinhp8.innerText = `${goblinStatus.goblinHP}`
-    herohp8.innerText = `${knightStatus.knightHP}`
-    mp3Punch.play()
-    goblinPunch()
-  }
-  if (goblinStatus.goblinHP === 0) {
-    goblinStatus.goblinHP = 'Defeat'
-    knightStatus.knightCOIN += 50
-    herocoin8.innerHTML = `${knightStatus.knightCOIN}`
-    infattack8.innerHTML = 'WIN'
-    upgrade8.classList.toggle('hidden')
-    setTimeout(function () {
-      imggoblin8.src = 'assets/image/Rip.svg'
-      imggoblin8.style.transform = 'translateY(30px)'
-    }, 0251)
-  }
-})
-
-/**
- * ----------------------------------------------------------------------------------------
- * Page09 FIGHT2
- * ----------------------------------------------------------------------------------------
- */
-/* Change page*/
-const page9 = document.querySelector('#MobilePage9')
-const fight9 = document.querySelector('#MobilePage9 footer .btn-fight')
-const upgrade9 = document.querySelector('#MobilePage9 footer .btn-upgrade')
-const herocoin9 = document.querySelector('#MobilePage9 .heroCOIN')
-const herohp9 = document.querySelector('#MobilePage9 .heroHP')
-const skeletonhp9 = document.querySelector('#MobilePage9 .skeletonHP')
-
-let clickFight2 = 1
-
-fight9.addEventListener('click', function () {
-  if (clickFight2 === 1) {
-    herocoin9.innerHTML = `${knightStatus.knightCOIN}`
-    herohp9.innerHTML = `${knightStatus.knightHP}`
-    skeletonhp9.innerHTML = `${skeletonStatus.skeletonHP}`
-    fight9.classList.toggle('hidden')
-  }
-  clickFight2 += 1
-})
-
-upgrade9.addEventListener('click', function () {
-  page9.classList.toggle('show')
-  page4.classList.toggle('show')
-  clickButton.play()
-})
-
-/* Fight*/
-const imgskeleton9 = document.querySelector('#MobilePage9 .img-skeleton')
-const infattack9 = document.querySelector('#MobilePage9 .inf-attack')
-
-imgskeleton9.addEventListener('click', function () {
-  if (clickFight2 === 2 && skeletonStatus.skeletonHP > 0) {
-    skeletonStatus.skeletonHP -= 10
-    knightStatus.knightHP -= 5
-    skeletonhp9.innerText = `${skeletonStatus.skeletonHP}`
-    herohp9.innerText = `${knightStatus.knightHP}`
-    mp3Punch.play()
-  }
-  if (skeletonStatus.skeletonHP === 0) {
-    skeletonStatus.skeletonHP = 'Defeat'
-    imgskeleton9.src = 'assets/image/Rip.svg'
-    imgskeleton9.style.transform = 'translateY(30px)'
-
-    knightStatus.knightCOIN += 50
-    herocoin9.innerHTML = `${knightStatus.knightCOIN}`
-    infattack9.innerHTML = 'WIN'
-    upgrade9.classList.toggle('hidden')
-  }
+  nivelFight += 1
+  fight8.classList.toggle('hidden')
+  upgrade8.classList.toggle('hidden')
+  back8.classList.toggle('hidden')
+  monsterImageList[`${nivelFight}`]()
+  nivel4.innerHTML = 'NÍVEL ' + [`${nivelFight}`]
 })

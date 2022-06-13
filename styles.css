@@ -173,9 +173,7 @@ body, html {
 
 
 /* Page 08 */
-.img-goblin, .img-skeleton  {
-  margin-top: 1rem;
-}
+.img-monster {  margin-top: 1rem;}
 
 
 
@@ -206,6 +204,7 @@ body, html {
 
 .btn-fight.hidden { display: none  }
 .btn-upgrade.hidden { display: none  }
+.btn-back.hidden { display: none  }
 
 .box { background-color: var(--color02);}
 
