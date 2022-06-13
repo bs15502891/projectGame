@@ -248,10 +248,89 @@ mp3Punch.volume = 0.1
 
 /**
  * ----------------------------------------------------------------------------------------
- * Variables
+ * Hero Damage (Monster Attack)
  * ----------------------------------------------------------------------------------------
  */
-/*Equips*/
+const monsterDamage = [
+  0,
+  monster1,
+  monster1,
+  monster1,
+  monster1,
+  monster1,
+  monster1,
+  monster1,
+  monster1
+]
+
+function monster1() {
+  let monsterDamage =
+    (10 *
+      nivelFight *
+      (heroAttributes.heroSTR * 0.7 +
+        heroAttributes.heroDEX * 0.3 +
+        heroAttributes.heroINT * 0 +
+        (heroEquips.heroHELMET +
+          heroEquips.heroARMOR +
+          heroEquips.heroBOOTS +
+          heroEquips.heroSHIELD +
+          heroEquips.heroRING))) /
+    30
+  return monsterDamage
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Hero Attack
+ * ----------------------------------------------------------------------------------------
+ */
+
+const heroAttack = [0, knightAttack, archerAttack, assassinAttack, mageAttack] //heroStatus.hero.Class = 1 = kinight
+
+function knightAttack() {
+  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroSTR * 1.5
+  return heroAttack
+}
+
+function archerAttack() {
+  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroDEX * 1.5
+  return heroAttack
+}
+
+function assassinAttack() {
+  let heroAttack =
+    heroEquips.heroWEAPON *
+    (heroAttributes.heroSTR * 0.8 + heroAttributes.heroDEX * 0.8)
+  return heroAttack
+}
+
+function mageAttack() {
+  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroINT * 1.7
+  return heroAttack
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Hero Coin
+ * ----------------------------------------------------------------------------------------
+ */
+const heroCoinList = 50
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Status Equips Attributes
+ * ----------------------------------------------------------------------------------------
+ */
+/*Hero*/
+
+const heroStatus = {
+  heroClass: 1,
+  heroHP: 1,
+  heroATT: 1,
+  heroDEF: 1,
+  heroCOIN: 10
+}
+
 const heroEquips = {
   heroHELMET: 1,
   heroARMOR: 1,
@@ -260,66 +339,14 @@ const heroEquips = {
   heroSHIELD: 1,
   heroRING: 1
 }
-
-/*Knight*/
-const knightStatus = {
-  knightHP: 100,
-  knightATT: 10,
-  knightDEF: 10,
-  knightCOIN: 10
-}
-const knightAttributes = {
-  knightSTR: 1,
-  knightINT: 1,
-  knightDEX: 1,
-  knightVIT: 1
+const heroAttributes = {
+  heroSTR: 1,
+  heroINT: 1,
+  heroDEX: 1,
+  heroVIT: 1
 }
 
-/*Archer*/
-const archerStatus = {
-  archerHP: 100,
-  archerATT: 10,
-  archerDEF: 10,
-  archerCOIN: 10
-}
-
-const archerAttributes = {
-  archerSTR: 1,
-  archerINT: 1,
-  archerDEX: 1,
-  archerVIT: 1
-}
-
-/*Assassin*/
-const assassinStatus = {
-  assassinHP: 100,
-  assassinATT: 10,
-  assassinDEF: 10,
-  assassinCOIN: 10
-}
-
-const assassinAttributes = {
-  assassinSTR: 1,
-  assassinINT: 1,
-  assassinDEX: 1,
-  assassinVIT: 1
-}
-
-/*Mage*/
-const mageStatus = {
-  mageHP: 100,
-  mageATT: 10,
-  mageDEF: 10,
-  mageCOIN: 10
-}
-
-const mageAttributes = {
-  mageSTR: 1,
-  mageINT: 1,
-  mageDEX: 1,
-  mageVIT: 1
-}
-
+/*Monster*/
 const monsterHPList = [
   0,
   'goblinHP',
@@ -332,16 +359,75 @@ const monsterHPList = [
   'pirateHP'
 ]
 
-/*Goblin*/
 const monsterStatus = {
   goblinHP: 100,
-  skeletonHP: 100,
-  centaurHP: 100,
-  wolfHP: 100,
-  reaperHP: 100,
-  golemHP: 100,
-  deadknightP: 100,
-  pirateHP: 100
+  skeletonHP: 200,
+  centaurHP: 300,
+  wolfHP: 400,
+  reaperHP: 500,
+  golemHP: 600,
+  deadknightP: 700,
+  pirateHP: 1000
+}
+
+/*Knight*/
+const knightStatus = {
+  knightHP: 100,
+  knightATT: 10,
+  knightDEF: 10,
+  knightCOIN: 10
+}
+
+const knightAttributes = {
+  knightSTR: 10,
+  knightINT: 5,
+  knightDEX: 5,
+  knightVIT: 5
+}
+
+/*Archer*/
+const archerStatus = {
+  archerHP: 100,
+  archerATT: 10,
+  archerDEF: 10,
+  archerCOIN: 10
+}
+
+const archerAttributes = {
+  archerSTR: 5,
+  archerINT: 5,
+  archerDEX: 10,
+  archerVIT: 5
+}
+
+/*Assassin*/
+const assassinStatus = {
+  assassinHP: 100,
+  assassinATT: 10,
+  assassinDEF: 10,
+  assassinCOIN: 10
+}
+
+const assassinAttributes = {
+  assassinSTR: 8,
+  assassinINT: 5,
+  assassinDEX: 8,
+  assassinVIT: 5
+}
+
+/*Mage*/
+const mageStatus = {
+  mageHP: 100,
+  mageATT: 10,
+  mageDEF: 10,
+  mageCOIN: 10
+}
+
+const mageAttributes = {
+  mageSTR: 5,
+  mageINT: 10,
+  mageDEX: 5,
+  mageVIT: 5
 }
 
 /**
@@ -406,21 +492,25 @@ btnknight.addEventListener('click', () => {
   chooseHeroFunction()
   knightImg()
   knightStatusAttributes()
+  heroStatusAttributes()
 })
 btnarcher.addEventListener('click', () => {
   chooseHeroFunction()
   archertImg()
   archerStatusAttributes()
+  heroStatusAttributes()
 })
 btnassassin.addEventListener('click', () => {
   chooseHeroFunction()
   assassinImg()
   assassinStatusAttributes()
+  heroStatusAttributes()
 })
 btnmage.addEventListener('click', () => {
   chooseHeroFunction()
   mageImg()
   mageStatusAttributes()
+  heroStatusAttributes()
 })
 
 back3.addEventListener('click', function () {
@@ -464,46 +554,58 @@ const herodex = document.querySelector('#MobilePage7 .heroDEX')
 const herovit = document.querySelector('#MobilePage7 .heroVIT')
 
 /*Put Hero Status and Attributes*/
+function heroStatusAttributes() {
+  herohp3.innerHTML = heroStatus.heroHP
+  heroatt3.innerHTML = heroStatus.heroATT
+  herodef3.innerHTML = heroStatus.heroDEF
+  herocoin3.innerHTML = heroStatus.heroCOIN
+  herostr.innerHTML = heroAttributes.heroSTR
+  heroint.innerHTML = heroAttributes.heroINT
+  herodex.innerHTML = heroAttributes.heroDEX
+  herovit.innerHTML = heroAttributes.heroVIT
+}
+
 function knightStatusAttributes() {
-  herohp3.innerHTML = `${knightStatus.knightHP}`
-  heroatt3.innerHTML = `${knightStatus.knightATT}`
-  herodef3.innerHTML = `${knightStatus.knightDEF}`
-  herocoin3.innerHTML = `${knightStatus.knightCOIN}`
-  herostr.innerHTML = `${knightAttributes.knightSTR}`
-  heroint.innerHTML = `${knightAttributes.knightINT}`
-  herodex.innerHTML = `${knightAttributes.knightDEX}`
-  herovit.innerHTML = `${knightAttributes.knightVIT}`
+  heroStatus.heroClass = 1
+  heroStatus.heroHP = knightStatus.knightHP
+  heroStatus.heroATT = knightStatus.knightATT
+  heroStatus.heroDEF = knightStatus.knightDEF
+  heroAttributes.heroSTR = knightAttributes.knightSTR
+  heroAttributes.heroINT = knightAttributes.knightINT
+  heroAttributes.heroDEX = knightAttributes.knightDEX
+  heroAttributes.heroVIT = knightAttributes.knightVIT
 }
 
 function archerStatusAttributes() {
-  herohp3.innerHTML = `${archerStatus.archerHP}`
-  heroatt3.innerHTML = `${archerStatus.archerATT}`
-  herodef3.innerHTML = `${archerStatus.archerDEF}`
-  herocoin3.innerHTML = `${archerStatus.archerCOIN}`
-  herostr.innerHTML = `${archerAttributes.archerSTR}`
-  heroint.innerHTML = `${archerAttributes.archerINT}`
-  herodex.innerHTML = `${archerAttributes.archerDEX}`
-  herovit.innerHTML = `${archerAttributes.archerVIT}`
+  heroStatus.heroClass = 2
+  heroStatus.heroHP = archerStatus.archerHP
+  heroStatus.heroATT = archerStatus.archerATT
+  heroStatus.heroDEF = archerStatus.archerDEF
+  heroAttributes.heroSTR = archerAttributes.archerSTR
+  heroAttributes.heroINT = archerAttributes.archerINT
+  heroAttributes.heroDEX = archerAttributes.archerDEX
+  heroAttributes.heroVIT = archerAttributes.archerVIT
 }
 function assassinStatusAttributes() {
-  herohp3.innerHTML = `${assassinStatus.assassinHP}`
-  heroatt3.innerHTML = `${assassinStatus.assassinATT}`
-  herodef3.innerHTML = `${assassinStatus.assassinDEF}`
-  herocoin3.innerHTML = `${assassinStatus.assassinCOIN}`
-  herostr.innerHTML = `${assassinAttributes.assassinSTR}`
-  heroint.innerHTML = `${assassinAttributes.assassinINT}`
-  herodex.innerHTML = `${assassinAttributes.assassinDEX}`
-  herovit.innerHTML = `${assassinAttributes.assassinVIT}`
+  heroStatus.heroClass = 3
+  heroStatus.heroHP = assassinStatus.assassinHP
+  heroStatus.heroATT = assassinStatus.assassinATT
+  heroStatus.heroDEF = assassinStatus.assassinDEF
+  heroAttributes.heroSTR = assassinAttributes.assassinSTR
+  heroAttributes.heroINT = assassinAttributes.assassinINT
+  heroAttributes.heroDEX = assassinAttributes.assassinDEX
+  heroAttributes.heroVIT = assassinAttributes.assassinVIT
 }
+
 function mageStatusAttributes() {
-  herohp3.innerHTML = `${mageStatus.mageHP}`
-  heroatt3.innerHTML = `${mageStatus.mageATT}`
-  herodef3.innerHTML = `${mageStatus.mageDEF}`
-  herocoin3.innerHTML = `${mageStatus.mageCOIN}`
-  herostr.innerHTML = `${mageAttributes.mageSTR}`
-  heroint.innerHTML = `${mageAttributes.mageINT}`
-  herodex.innerHTML = `${mageAttributes.mageDEX}`
-  herovit.innerHTML = `${mageAttributes.mageVIT}`
+  heroStatus.heroClass = 4
+  heroStatus.heroHP = mageStatus.mageHP
+  heroStatus.heroATT = mageStatus.mageATT
+  heroStatus.heroDEF = mageStatus.mageDEF
+  heroAttributes.heroSTR = mageAttributes.mageSTR
+  heroAttributes.heroINT = mageAttributes.mageINT
+  heroAttributes.heroDEX = mageAttributes.mageDEX
+  heroAttributes.heroVIT = mageAttributes.mageVIT
 }
 
 /**
@@ -541,6 +643,9 @@ nivel4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page8.classList.toggle('show')
   clickButton.play()
+  herocoin8.innerHTML = `${heroStatus.heroCOIN}`
+  herohp8.innerHTML = `${heroStatus.heroHP}`
+  monsterhp8.innerHTML = `${monsterStatus[`${monsterHPList[`${nivelFight}`]}`]}`
 })
 
 reset4.addEventListener('click', function () {
@@ -689,6 +794,33 @@ back7.addEventListener('click', function () {
   clickButton.play()
 })
 
+const btnstr = document.querySelector('#MobilePage7 .btn-str')
+const btnint = document.querySelector('#MobilePage7 .btn-int')
+const btndex = document.querySelector('#MobilePage7 .btn-dex')
+const btnvit = document.querySelector('#MobilePage7 .btn-vit')
+
+btnstr.addEventListener('click', strUpgrade)
+btnint.addEventListener('click', intUpgrade)
+btndex.addEventListener('click', dexUpgrade)
+btnvit.addEventListener('click', vitUpgrade)
+
+function strUpgrade() {
+  heroAttributes.heroSTR += 1
+  herostr.innerHTML = heroAttributes.heroSTR
+}
+function intUpgrade() {
+  heroAttributes.heroINT += 1
+  heroint.innerHTML = heroAttributes.heroINT
+}
+function dexUpgrade() {
+  heroAttributes.heroDEX += 1
+  herodex.innerHTML = heroAttributes.heroDEX
+}
+function vitUpgrade() {
+  heroAttributes.heroVIT += 1
+  herovit.innerHTML = heroAttributes.heroVIT
+}
+
 /**
  * ----------------------------------------------------------------------------------------
  * Page08 FIGHT
@@ -720,11 +852,6 @@ let clickFight = 1
 
 fight8.addEventListener('click', function () {
   if (clickFight === 1) {
-    herocoin8.innerHTML = `${knightStatus.knightCOIN}`
-    herohp8.innerHTML = `${knightStatus.knightHP}`
-    monsterhp8.innerHTML = `${
-      monsterStatus[`${monsterHPList[`${nivelFight}`]}`]
-    }`
     fight8.classList.toggle('hidden')
     back8.classList.toggle('hidden')
   }
@@ -736,18 +863,20 @@ imgmonster.addEventListener('click', function () {
     clickFight === 2 &&
     monsterStatus[`${monsterHPList[`${nivelFight}`]}`] > 0
   ) {
-    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] -= 10
-    knightStatus.knightHP -= 5
-    monsterhp8.innerText = `${
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] -=
+      heroAttack[`${heroStatus.heroClass}`]()
+    heroStatus.heroHP -= Math.round(monsterDamage[`${nivelFight}`]())
+    monsterhp8.innerText = Math.round(
       monsterStatus[`${monsterHPList[`${nivelFight}`]}`]
-    }`
-    herohp8.innerText = `${knightStatus.knightHP}`
+    )
+
+    herohp8.innerText = heroStatus.heroHP
     mp3Punch.play()
     monsterPunchList[`${nivelFight}`]()
   }
   if (
     clickFight === 2 &&
-    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] === 0
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] <= 0
   ) {
     monsterhp8.innerText = 'Defeat'
     infattack8.innerHTML = 'WIN'
@@ -755,8 +884,8 @@ imgmonster.addEventListener('click', function () {
       imgmonster.src = 'assets/image/Rip.svg'
     }, 0251)
 
-    knightStatus.knightCOIN += 50
-    herocoin8.innerHTML = `${knightStatus.knightCOIN}`
+    heroStatus.heroCOIN += heroCoinList
+    herocoin8.innerHTML = heroStatus.heroCOIN
 
     upgrade8.classList.toggle('hidden')
     clickFight = 1
