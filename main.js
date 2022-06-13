@@ -482,26 +482,23 @@ upgrade8.addEventListener('click', function () {
 
 function goblinPunch() {
   setTimeout(function () {
-    imggoblin8.src = 'assets/image/7.svg'
+    imggoblin8.src = 'assets/image/Goblin1.svg'
   }, 0000)
   setTimeout(function () {
-    imggoblin8.src = 'assets/image/8.svg'
+    imggoblin8.src = 'assets/image/Goblin2.svg'
   }, 0050)
   setTimeout(function () {
-    imggoblin8.src = 'assets/image/9.svg'
+    imggoblin8.src = 'assets/image/Goblin3.svg'
   }, 0100)
   setTimeout(function () {
-    imggoblin8.src = 'assets/image/10.svg'
+    imggoblin8.src = 'assets/image/Goblin4.svg'
   }, 0150)
   setTimeout(function () {
-    imggoblin8.src = 'assets/image/11.svg'
+    imggoblin8.src = 'assets/image/Goblin5.svg'
   }, 0200)
   setTimeout(function () {
-    imggoblin8.src = 'assets/image/12.svg'
-  }, 0250)
-  setTimeout(function () {
     imggoblin8.src = 'assets/image/Goblin.svg'
-  }, 0300)
+  }, 0250)
 }
 
 /* Fight*/
@@ -526,7 +523,7 @@ imggoblin8.addEventListener('click', function () {
     setTimeout(function () {
       imggoblin8.src = 'assets/image/Rip.svg'
       imggoblin8.style.transform = 'translateY(30px)'
-    }, 0301)
+    }, 0251)
   }
 })
 
