@@ -519,13 +519,13 @@ imggoblin8.addEventListener('click', function () {
   }
   if (goblinStatus.goblinHP === 0) {
     goblinStatus.goblinHP = 'Defeat'
-    imggoblin8.style.transform = 'translateY(30px)'
     knightStatus.knightCOIN += 50
     herocoin8.innerHTML = `${knightStatus.knightCOIN}`
     infattack8.innerHTML = 'WIN'
     upgrade8.classList.toggle('hidden')
     setTimeout(function () {
       imggoblin8.src = 'assets/image/Rip.svg'
+      imggoblin8.style.transform = 'translateY(30px)'
     }, 0301)
   }
 })

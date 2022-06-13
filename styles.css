@@ -24,11 +24,11 @@ body, html {
   --color06: #F3F67C;
   --color07: #6DC376;
   --color08: #EA2222;
-  --color09: #C37B5C;
-  --color10: #314863;
-  --color11: #F7C13C;
+  --color09: #42e9d0;
+  --color10: #a6189f;
+  --color11: #ffe600;
   --color12: #D5D2D2;
-  --color13: #C96CF5;
+  --color13: #8fb6aa;
   --color14: hsl(217, 35%, 72%);
 
 /* fonts */
@@ -215,12 +215,8 @@ body, html {
 
 .gold { background-color: var(--color11);} 
 
-.punch {
-  width:174px;
-  height: 174px;
-  
-    animation: punch steps(4) 0.15s infinite; 
-}
+
+
 
 
 
