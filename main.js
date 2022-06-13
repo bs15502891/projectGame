@@ -308,6 +308,32 @@ function mageAttack() {
   let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroINT * 1.7
   return heroAttack
 }
+/**
+ * ----------------------------------------------------------------------------------------
+ * Hero HP
+ * ----------------------------------------------------------------------------------------
+ */
+const heroVitHP = [0, knightVitHP, archerVitHP, assassinVitHP, mageVitHP]
+
+function knightVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 20
+  return heroVitHP
+}
+
+function archerVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 16
+  return heroVitHP
+}
+
+function assassinVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 16
+  return heroVitHP
+}
+
+function mageVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 14
+  return heroVitHP
+}
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -819,6 +845,8 @@ function dexUpgrade() {
 function vitUpgrade() {
   heroAttributes.heroVIT += 1
   herovit.innerHTML = heroAttributes.heroVIT
+  heroStatus.heroHP = heroVitHP[`${heroStatus.heroClass}`]()
+  herohp3.innerHTML = heroStatus.heroHP
 }
 
 /**
