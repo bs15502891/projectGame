@@ -231,7 +231,7 @@ function piratePunch() {
  * ----------------------------------------------------------------------------------------
  */
 /*Hero*/
-const heroStatus = { heroClass: 1, heroHP: 1, heroATT: 1, heroDEF: 1, heroCOIN: 50 }
+const heroStatus = { heroClass: 1, heroHP: 1, heroATT: 1, heroDEF: 1, heroCOIN: 1 }
 const heroEquips = { heroHELMET: 1, heroARMOR: 1, heroBOOTS: 1, heroWEAPON: 1, heroSHIELD: 1, heroRING: 1 }
 const heroAttributes = { heroSTR: 1, heroINT: 1, heroDEX: 1, heroVIT: 1 }
 
@@ -240,7 +240,7 @@ const monsterHPList = [0, 'goblinHP', 'skeletonHP', 'centaurHP', 'wolfHP', 'reap
 const monsterStatus = { goblinHP: 100, skeletonHP: 200, centaurHP: 300, wolfHP: 400, reaperHP: 500, golemHP: 600, deadknightP: 700, pirateHP: 1000 }
 
 /*Knight*/
-const knightStatus = { knightHP: 100, knightATT: 10, knightDEF: 10, knightCOIN: 50 }
+const knightStatus = { knightHP: 100, knightATT: 10, knightDEF: 10, knightCOIN: 1 }
 const knightAttributes = { knightSTR: 10, knightINT: 5, knightDEX: 5, knightVIT: 5 }
 
 /*Archer*/
@@ -248,11 +248,11 @@ const archerStatus = { archerHP: 100, archerATT: 10, archerDEF: 10, archerCOIN: 
 const archerAttributes = { archerSTR: 5, archerINT: 5, archerDEX: 10, archerVIT: 5 }
 
 /*Assassin*/
-const assassinStatus = { assassinHP: 100, assassinATT: 10, assassinDEF: 10, assassinCOIN: 50 }
+const assassinStatus = { assassinHP: 100, assassinATT: 10, assassinDEF: 10, assassinCOIN: 1 }
 const assassinAttributes = { assassinSTR: 8, assassinINT: 5, assassinDEX: 8, assassinVIT: 5 }
 
 /*Mage*/
-const mageStatus = { mageHP: 100, mageATT: 10, mageDEF: 10, mageCOIN: 50 }
+const mageStatus = { mageHP: 100, mageATT: 10, mageDEF: 10, mageCOIN: 1 }
 const mageAttributes = { mageSTR: 5, mageINT: 10, mageDEX: 5, mageVIT: 5 }
 /**
  * ----------------------------------------------------------------------------------------
@@ -615,6 +615,7 @@ nivel4.addEventListener('click', function () {
   herocoin8.innerHTML = '$' + `${heroStatus.heroCOIN}`
   herohp8.innerHTML = `${heroStatus.heroHP}`
   monsterhp8.innerHTML = `${monsterStatus[`${monsterHPList[`${nivelFight}`]}`]}`
+  monsterImageList[`${nivelFight}`]()
 })
 
 btnrestart4.addEventListener('click', function () {
@@ -735,7 +736,7 @@ function weaponUpgrade() {
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroWEAPON === 3 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroWEAPON === 3 && heroStatus.heroCOIN >= equipsPrice) {
     heroweapon.style.background = 'var(--color11)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
@@ -744,17 +745,17 @@ function weaponUpgrade() {
   heroEquips.heroWEAPON += 1
 }
 function armorUpgrade() {
-  if (heroEquips.heroARMOR === 1 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroARMOR === 1 && heroStatus.heroCOIN >= equipsPrice) {
     heroarmor.style.background = 'var(--color09)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroARMOR === 2 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroARMOR === 2 && heroStatus.heroCOIN >= equipsPrice) {
     heroarmor.style.background = 'var(--color10)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroARMOR === 3 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroARMOR === 3 && heroStatus.heroCOIN >= equipsPrice) {
     heroarmor.style.background = 'var(--color11)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
@@ -763,17 +764,17 @@ function armorUpgrade() {
   heroEquips.heroARMOR += 1
 }
 function shieldUpgrade() {
-  if (heroEquips.heroSHIELD === 1 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroSHIELD === 1 && heroStatus.heroCOIN >= equipsPrice) {
     heroshield.style.background = 'var(--color09)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroSHIELD === 2 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroSHIELD === 2 && heroStatus.heroCOIN >= equipsPrice) {
     heroshield.style.background = 'var(--color10)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroSHIELD === 3 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroSHIELD === 3 && heroStatus.heroCOIN >= equipsPrice) {
     heroshield.style.background = 'var(--color11)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
@@ -782,17 +783,17 @@ function shieldUpgrade() {
   heroEquips.heroSHIELD += 1
 }
 function bootsUpgrade() {
-  if (heroEquips.heroBOOTS === 1 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroBOOTS === 1 && heroStatus.heroCOIN >= equipsPrice) {
     heroboots.style.background = 'var(--color09)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroBOOTS === 2 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroBOOTS === 2 && heroStatus.heroCOIN >= equipsPrice) {
     heroboots.style.background = 'var(--color10)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroBOOTS == 3 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroBOOTS == 3 && heroStatus.heroCOIN >= equipsPrice) {
     heroboots.style.background = 'var(--color11)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
@@ -801,17 +802,17 @@ function bootsUpgrade() {
   heroEquips.heroBOOTS += 1
 }
 function ringUpgrade() {
-  if (heroEquips.heroRING === 1 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroRING === 1 && heroStatus.heroCOIN >= equipsPrice) {
     heroring.style.background = 'var(--color09)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroRING === 2 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroRING === 2 && heroStatus.heroCOIN >= equipsPrice) {
     heroring.style.background = 'var(--color10)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
   }
-  if (heroEquips.heroRING == 3 && heroStatus.heroCOIN >= attributesPrice) {
+  if (heroEquips.heroRING == 3 && heroStatus.heroCOIN >= equipsPrice) {
     heroring.style.background = 'var(--color11)'
     heroStatus.heroCOIN -= equipsPrice
     refreshUpgrades()
@@ -968,7 +969,6 @@ upgrade8.addEventListener('click', function () {
   upgrade8.classList.toggle('hidden')
   back8.classList.toggle('hidden')
   clickButton.play()
-  monsterImageList[`${nivelFight}`]()
   nivelFight += 1
   nivel4.innerHTML = 'NÍVEL ' + [`${nivelFight}`]
   herocoin3.innerHTML = heroStatus.heroCOIN
