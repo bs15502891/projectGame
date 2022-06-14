@@ -254,17 +254,70 @@ mp3Punch.volume = 0.1
 const monsterDamage = [
   0,
   monster1,
-  monster1,
-  monster1,
-  monster1,
-  monster1,
-  monster1,
-  monster1,
-  monster1
+  monster2,
+  monster3,
+  monster4,
+  monster5,
+  monster6,
+  monster7,
+  monster8
 ]
 
+const monsterDamageBase = [0, 15, 20, 30, 40, 50, 60, 70, 80]
+
 function monster1() {
-  let monsterDamage = 10 * nivelFight * heroDefense[`${nivelFight}`]()
+  let monsterDamage = Math.round(
+    monsterDamageBase[1] - heroDefense[`${nivelFight}`]()
+  )
+  return monsterDamage
+}
+
+function monster2() {
+  let monsterDamage = Math.round(
+    monsterDamageBase[2] - heroDefense[`${nivelFight}`]()
+  )
+  return monsterDamage
+}
+
+function monster3() {
+  let monsterDamage = Math.round(
+    monsterDamageBase[3] - heroDefense[`${nivelFight}`]()
+  )
+  return monsterDamage
+}
+
+function monster4() {
+  let monsterDamage = Math.round(
+    monsterDamageBase[4] - heroDefense[`${nivelFight}`]()
+  )
+  return monsterDamage
+}
+
+function monster5() {
+  let monsterDamage = Math.round(
+    monsterDamageBase[5] - heroDefense[`${nivelFight}`]()
+  )
+  return monsterDamage
+}
+
+function monster6() {
+  let monsterDamage = Math.round(
+    monsterDamageBase[6] - heroDefense[`${nivelFight}`]()
+  )
+  return monsterDamage
+}
+
+function monster7() {
+  let monsterDamage = Math.round(
+    monsterDamageBase[7] - heroDefense[`${nivelFight}`]()
+  )
+  return monsterDamage
+}
+
+function monster8() {
+  let monsterDamage = Math.round(
+    monsterDamageBase[8] - heroDefense[`${nivelFight}`]()
+  )
   return monsterDamage
 }
 
