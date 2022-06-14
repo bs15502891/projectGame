@@ -262,22 +262,26 @@ const mageAttributes = { mageSTR: 5, mageINT: 10, mageDEX: 5, mageVIT: 5 }
 const heroAttack = [0, knightAttack, archerAttack, assassinAttack, mageAttack] //heroStatus.hero.Class = 1 = kinight
 
 function knightAttack() {
-  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroSTR * 1.5
+  let heroAttack =
+    (heroAttributes.heroSTR * 10 + heroAttributes.heroDEX * 3 + heroAttributes.heroINT * 0 + heroAttributes.heroVIT * 0 + heroEquips.heroWEAPON * 10) / 10
   return heroAttack
 }
 
 function archerAttack() {
-  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroDEX * 1.5
+  let heroAttack =
+    (heroAttributes.heroSTR * 2 + heroAttributes.heroDEX * 15 + heroAttributes.heroINT * 0 + heroAttributes.heroVIT * 0 + heroEquips.heroWEAPON * 10) / 10
   return heroAttack
 }
 
 function assassinAttack() {
-  let heroAttack = heroEquips.heroWEAPON * (heroAttributes.heroSTR * 0.8 + heroAttributes.heroDEX * 0.8)
+  let heroAttack =
+    (heroAttributes.heroSTR * 7 + heroAttributes.heroDEX * 10 + heroAttributes.heroINT * 0 + heroAttributes.heroVIT * 0 + heroEquips.heroWEAPON * 10) / 10
   return heroAttack
 }
 
 function mageAttack() {
-  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroINT * 1.7
+  let heroAttack =
+    (heroAttributes.heroSTR * 0 + heroAttributes.heroDEX * 0 + heroAttributes.heroINT * 20 + heroAttributes.heroVIT * 0 + heroEquips.heroWEAPON * 10) / 10
   return heroAttack
 }
 /**
@@ -293,17 +297,17 @@ function knightVitHP() {
 }
 
 function archerVitHP() {
-  let heroVitHP = heroAttributes.heroVIT * 16
+  let heroVitHP = heroAttributes.heroVIT * 15
   return heroVitHP
 }
 
 function assassinVitHP() {
-  let heroVitHP = heroAttributes.heroVIT * 16
+  let heroVitHP = heroAttributes.heroVIT * 15
   return heroVitHP
 }
 
 function mageVitHP() {
-  let heroVitHP = heroAttributes.heroVIT * 14
+  let heroVitHP = heroAttributes.heroVIT * 10
   return heroVitHP
 }
 
@@ -360,37 +364,45 @@ const heroDefense = [0, knightDefense, archerDefense, assassinDefense, mageDefen
 
 function knightDefense() {
   let knightDefense =
-    heroAttributes.heroSTR * 0.7 +
-    heroAttributes.heroDEX * 0.3 +
-    heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
+    (heroAttributes.heroSTR * 3 +
+      heroAttributes.heroDEX * 1 +
+      heroAttributes.heroINT * 0 +
+      heroAttributes.heroVIT * 0 +
+      (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) * 10) /
+    10
   return knightDefense
 }
 
 function archerDefense() {
   let archerDefense =
-    heroAttributes.heroSTR * 0.7 +
-    heroAttributes.heroDEX * 0.3 +
-    heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
+    (heroAttributes.heroSTR * 2 +
+      heroAttributes.heroDEX * 0.6 +
+      heroAttributes.heroINT * 0 +
+      heroAttributes.heroVIT * 0 +
+      (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) * 10) /
+    10
   return archerDefense
 }
 
 function assassinDefense() {
   let assassinDefense =
-    heroAttributes.heroSTR * 0.7 +
-    heroAttributes.heroDEX * 0.3 +
-    heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
+    (heroAttributes.heroSTR * 1 +
+      heroAttributes.heroDEX * 2 +
+      heroAttributes.heroINT * 0 +
+      heroAttributes.heroVIT * 0 +
+      (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) * 10) /
+    10
   return assassinDefense
 }
 
 function mageDefense() {
   let mageDefense =
-    heroAttributes.heroSTR * 0.7 +
-    heroAttributes.heroDEX * 0.3 +
-    heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
+    (heroAttributes.heroSTR * 0 +
+      heroAttributes.heroDEX * 0.8 +
+      heroAttributes.heroINT * 0.3 +
+      heroAttributes.heroVIT * 0 +
+      (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) * 10) /
+    10
   return mageDefense
 }
 
@@ -628,8 +640,8 @@ btnrestart4.addEventListener('click', function () {
  * ----------------------------------------------------------------------------------------
  */
 /* Hero Coin */
-heroStatus.heroCOIN = 50
-const heroCoinList = 50
+heroStatus.heroCOIN = 20
+const heroCoinList = 20
 
 /* Equips Atributtes Price */
 const attributesPrice = 5
@@ -957,6 +969,7 @@ i = imgmonster.addEventListener('click', function () {
     clickFight = 1
   }
   if (heroVarHP <= 0) {
+    herohp8.innerText = 'Dead'
     btngameover.classList.toggle('hidden')
     btnrestart8.classList.toggle('hidden')
   }
