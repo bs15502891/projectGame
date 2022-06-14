@@ -264,19 +264,72 @@ const monsterDamage = [
 ]
 
 function monster1() {
-  let monsterDamage =
-    (10 *
-      nivelFight *
-      (heroAttributes.heroSTR * 0.7 +
-        heroAttributes.heroDEX * 0.3 +
-        heroAttributes.heroINT * 0 +
-        (heroEquips.heroHELMET +
-          heroEquips.heroARMOR +
-          heroEquips.heroBOOTS +
-          heroEquips.heroSHIELD +
-          heroEquips.heroRING))) /
-    30
+  let monsterDamage = 10 * nivelFight * heroDefense[`${nivelFight}`]()
   return monsterDamage
+}
+
+const heroDefense = [
+  0,
+  knightDefense,
+  archerDefense,
+  assassinDefense,
+  mageDefense
+]
+
+function knightDefense() {
+  let knightDefense =
+    heroAttributes.heroSTR * 0.7 +
+    heroAttributes.heroDEX * 0.3 +
+    heroAttributes.heroINT * 0 +
+    (heroEquips.heroHELMET +
+      heroEquips.heroARMOR +
+      heroEquips.heroBOOTS +
+      heroEquips.heroSHIELD +
+      heroEquips.heroRING) /
+      3
+  return knightDefense
+}
+
+function archerDefense() {
+  let archerDefense =
+    heroAttributes.heroSTR * 0.7 +
+    heroAttributes.heroDEX * 0.3 +
+    heroAttributes.heroINT * 0 +
+    (heroEquips.heroHELMET +
+      heroEquips.heroARMOR +
+      heroEquips.heroBOOTS +
+      heroEquips.heroSHIELD +
+      heroEquips.heroRING) /
+      3
+  return archerDefense
+}
+
+function assassinDefense() {
+  let assassinDefense =
+    heroAttributes.heroSTR * 0.7 +
+    heroAttributes.heroDEX * 0.3 +
+    heroAttributes.heroINT * 0 +
+    (heroEquips.heroHELMET +
+      heroEquips.heroARMOR +
+      heroEquips.heroBOOTS +
+      heroEquips.heroSHIELD +
+      heroEquips.heroRING) /
+      3
+  return assassinDefense
+}
+
+function mageDefense() {
+  let mageDefense =
+    heroAttributes.heroSTR * 0.7 +
+    heroAttributes.heroDEX * 0.3 +
+    heroAttributes.heroINT * 0 +
+    (heroEquips.heroHELMET +
+      heroEquips.heroARMOR +
+      heroEquips.heroBOOTS +
+      heroEquips.heroSHIELD +
+      heroEquips.heroRING) /
+      3
+  return mageDefense
 }
 
 /**
@@ -645,7 +698,7 @@ const status4 = document.querySelector('#MobilePage4 .btn-status')
 const equips4 = document.querySelector('#MobilePage4 .btn-equips')
 const attributes4 = document.querySelector('#MobilePage4 .btn-attributes')
 const nivel4 = document.querySelector('#MobilePage4 .btn-nivel')
-const reset4 = document.querySelector('#MobilePage4 footer .btn-reset')
+const btnrestart4 = document.querySelector('#MobilePage4 footer .btn-restart')
 
 status4.addEventListener('click', function () {
   page4.classList.toggle('show')
@@ -674,7 +727,7 @@ nivel4.addEventListener('click', function () {
   monsterhp8.innerHTML = `${monsterStatus[`${monsterHPList[`${nivelFight}`]}`]}`
 })
 
-reset4.addEventListener('click', function () {
+btnrestart4.addEventListener('click', function () {
   location.reload()
 })
 
@@ -692,6 +745,21 @@ back5.addEventListener('click', function () {
   page4.classList.toggle('show')
   clickButton.play()
 })
+/**
+ * ----------------------------------------------------------------------------------------
+ * Refresh Upgrades
+ * ----------------------------------------------------------------------------------------
+ */
+function refreshUpgrades() {
+  heroStatus.heroATT = heroAttack[`${heroStatus.heroClass}`]()
+  heroatt3.innerHTML = Math.round(heroStatus.heroATT)
+
+  heroStatus.heroDEF = heroDefense[`${heroStatus.heroClass}`]()
+  herodef3.innerHTML = Math.round(heroStatus.heroDEF)
+
+  heroStatus.heroHP = heroVitHP[`${heroStatus.heroClass}`]()
+  herohp3.innerHTML = Math.round(heroStatus.heroHP)
+}
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -706,6 +774,7 @@ back6.addEventListener('click', function () {
   page6.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
+  refreshUpgrades()
 })
 
 /* Esquips Upgrade*/
@@ -818,6 +887,7 @@ back7.addEventListener('click', function () {
   page7.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
+  refreshUpgrades()
 })
 
 const btnstr = document.querySelector('#MobilePage7 .btn-str')
@@ -845,8 +915,6 @@ function dexUpgrade() {
 function vitUpgrade() {
   heroAttributes.heroVIT += 1
   herovit.innerHTML = heroAttributes.heroVIT
-  heroStatus.heroHP = heroVitHP[`${heroStatus.heroClass}`]()
-  herohp3.innerHTML = heroStatus.heroHP
 }
 
 /**
@@ -868,11 +936,19 @@ const monsterhp8 = document.querySelector('#MobilePage8 .monsterHP')
 const imgmonster = document.querySelector('#MobilePage8 .img-monster')
 const infattack8 = document.querySelector('#MobilePage8 .inf-attack')
 
+const btngameover = document.querySelector('#MobilePage8 .btn-gameover')
+const btnrestart8 = document.querySelector('#MobilePage8 .btn-restart')
+
+btnrestart8.addEventListener('click', function () {
+  location.reload()
+})
+
 back8.addEventListener('click', function () {
   page8.classList.toggle('show')
   page4.classList.toggle('show')
   clickButton.play()
 })
+
 /* Fight*/
 
 let nivelFight = 1
@@ -882,29 +958,31 @@ fight8.addEventListener('click', function () {
   if (clickFight === 1) {
     fight8.classList.toggle('hidden')
     back8.classList.toggle('hidden')
+    heroVarHP = heroStatus.heroHP
   }
   clickFight += 1
 })
-
-imgmonster.addEventListener('click', function () {
+i = imgmonster.addEventListener('click', function () {
   if (
     clickFight === 2 &&
-    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] > 0
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] > 0 &&
+    heroVarHP != 0
   ) {
     monsterStatus[`${monsterHPList[`${nivelFight}`]}`] -=
       heroAttack[`${heroStatus.heroClass}`]()
-    heroStatus.heroHP -= Math.round(monsterDamage[`${nivelFight}`]())
+    heroVarHP -= Math.round(monsterDamage[`${nivelFight}`]())
     monsterhp8.innerText = Math.round(
       monsterStatus[`${monsterHPList[`${nivelFight}`]}`]
     )
 
-    herohp8.innerText = heroStatus.heroHP
+    herohp8.innerText = heroVarHP
     mp3Punch.play()
     monsterPunchList[`${nivelFight}`]()
   }
   if (
     clickFight === 2 &&
-    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] <= 0
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] <= 0 &&
+    heroVarHP != 0
   ) {
     monsterhp8.innerText = 'Defeat'
     infattack8.innerHTML = 'WIN'
@@ -917,6 +995,10 @@ imgmonster.addEventListener('click', function () {
 
     upgrade8.classList.toggle('hidden')
     clickFight = 1
+  }
+  if (heroVarHP <= 0) {
+    btngameover.classList.toggle('hidden')
+    btnrestart8.classList.toggle('hidden')
   }
 })
 
