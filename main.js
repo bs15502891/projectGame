@@ -1,5 +1,19 @@
 /**
  * ----------------------------------------------------------------------------------------
+ * Audio
+ * ----------------------------------------------------------------------------------------
+ */
+const mp3BackgroundSong = new Audio('assets/song/BackgroundSong.mp3')
+const clickButton = new Audio('assets/song/ClickButton.wav')
+const mp3Punch = new Audio('assets/song/Punch.mp3')
+
+mp3BackgroundSong.loop = 'loop'
+
+mp3BackgroundSong.volume = 0.01
+clickButton.volume = 0.05
+mp3Punch.volume = 0.1
+/**
+ * ----------------------------------------------------------------------------------------
  * Image
  * ----------------------------------------------------------------------------------------
  */
@@ -38,7 +52,7 @@ function pirateImage() {
 }
 /**
  * ----------------------------------------------------------------------------------------
- * Punch
+ * Punch Effect
  * ----------------------------------------------------------------------------------------
  */
 const monsterPunchList = [0, goblinPunch, skeletonPunch, centaurPunch, wolfPunch, reaperPunch, golemPunch, deathKnightPunch, piratePunch]
@@ -213,18 +227,85 @@ function piratePunch() {
 
 /**
  * ----------------------------------------------------------------------------------------
- * Audio
+ * Status Equips Attributes
  * ----------------------------------------------------------------------------------------
  */
-const mp3BackgroundSong = new Audio('assets/song/BackgroundSong.mp3')
-const clickButton = new Audio('assets/song/ClickButton.wav')
-const mp3Punch = new Audio('assets/song/Punch.mp3')
+/*Hero*/
+const heroStatus = { heroClass: 1, heroHP: 1, heroATT: 1, heroDEF: 1, heroCOIN: 50 }
+const heroEquips = { heroHELMET: 1, heroARMOR: 1, heroBOOTS: 1, heroWEAPON: 1, heroSHIELD: 1, heroRING: 1 }
+const heroAttributes = { heroSTR: 1, heroINT: 1, heroDEX: 1, heroVIT: 1 }
 
-mp3BackgroundSong.loop = 'loop'
+/*Monster*/
+const monsterHPList = [0, 'goblinHP', 'skeletonHP', 'centaurHP', 'wolfHP', 'reaperHP', 'golemHP', 'deadknightP', 'pirateHP']
+const monsterStatus = { goblinHP: 100, skeletonHP: 200, centaurHP: 300, wolfHP: 400, reaperHP: 500, golemHP: 600, deadknightP: 700, pirateHP: 1000 }
 
-mp3BackgroundSong.volume = 0.01
-clickButton.volume = 0.05
-mp3Punch.volume = 0.1
+/*Knight*/
+const knightStatus = { knightHP: 100, knightATT: 10, knightDEF: 10, knightCOIN: 50 }
+const knightAttributes = { knightSTR: 10, knightINT: 5, knightDEX: 5, knightVIT: 5 }
+
+/*Archer*/
+const archerStatus = { archerHP: 100, archerATT: 10, archerDEF: 10, archerCOIN: 10 }
+const archerAttributes = { archerSTR: 5, archerINT: 5, archerDEX: 10, archerVIT: 5 }
+
+/*Assassin*/
+const assassinStatus = { assassinHP: 100, assassinATT: 10, assassinDEF: 10, assassinCOIN: 50 }
+const assassinAttributes = { assassinSTR: 8, assassinINT: 5, assassinDEX: 8, assassinVIT: 5 }
+
+/*Mage*/
+const mageStatus = { mageHP: 100, mageATT: 10, mageDEF: 10, mageCOIN: 50 }
+const mageAttributes = { mageSTR: 5, mageINT: 10, mageDEX: 5, mageVIT: 5 }
+/**
+ * ----------------------------------------------------------------------------------------
+ * Hero Attack
+ * ----------------------------------------------------------------------------------------
+ */
+const heroAttack = [0, knightAttack, archerAttack, assassinAttack, mageAttack] //heroStatus.hero.Class = 1 = kinight
+
+function knightAttack() {
+  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroSTR * 1.5
+  return heroAttack
+}
+
+function archerAttack() {
+  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroDEX * 1.5
+  return heroAttack
+}
+
+function assassinAttack() {
+  let heroAttack = heroEquips.heroWEAPON * (heroAttributes.heroSTR * 0.8 + heroAttributes.heroDEX * 0.8)
+  return heroAttack
+}
+
+function mageAttack() {
+  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroINT * 1.7
+  return heroAttack
+}
+/**
+ * ----------------------------------------------------------------------------------------
+ * Hero HP
+ * ----------------------------------------------------------------------------------------
+ */
+const heroVitHP = [0, knightVitHP, archerVitHP, assassinVitHP, mageVitHP]
+
+function knightVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 20
+  return heroVitHP
+}
+
+function archerVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 16
+  return heroVitHP
+}
+
+function assassinVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 16
+  return heroVitHP
+}
+
+function mageVitHP() {
+  let heroVitHP = heroAttributes.heroVIT * 14
+  return heroVitHP
+}
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -311,171 +392,6 @@ function mageDefense() {
     heroAttributes.heroINT * 0 +
     (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
   return mageDefense
-}
-
-/**
- * ----------------------------------------------------------------------------------------
- * Hero Attack
- * ----------------------------------------------------------------------------------------
- */
-
-const heroAttack = [0, knightAttack, archerAttack, assassinAttack, mageAttack] //heroStatus.hero.Class = 1 = kinight
-
-function knightAttack() {
-  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroSTR * 1.5
-  return heroAttack
-}
-
-function archerAttack() {
-  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroDEX * 1.5
-  return heroAttack
-}
-
-function assassinAttack() {
-  let heroAttack = heroEquips.heroWEAPON * (heroAttributes.heroSTR * 0.8 + heroAttributes.heroDEX * 0.8)
-  return heroAttack
-}
-
-function mageAttack() {
-  let heroAttack = heroEquips.heroWEAPON * heroAttributes.heroINT * 1.7
-  return heroAttack
-}
-/**
- * ----------------------------------------------------------------------------------------
- * Hero HP
- * ----------------------------------------------------------------------------------------
- */
-const heroVitHP = [0, knightVitHP, archerVitHP, assassinVitHP, mageVitHP]
-
-function knightVitHP() {
-  let heroVitHP = heroAttributes.heroVIT * 20
-  return heroVitHP
-}
-
-function archerVitHP() {
-  let heroVitHP = heroAttributes.heroVIT * 16
-  return heroVitHP
-}
-
-function assassinVitHP() {
-  let heroVitHP = heroAttributes.heroVIT * 16
-  return heroVitHP
-}
-
-function mageVitHP() {
-  let heroVitHP = heroAttributes.heroVIT * 14
-  return heroVitHP
-}
-
-/**
- * ----------------------------------------------------------------------------------------
- * Hero Coin
- * ----------------------------------------------------------------------------------------
- */
-const heroCoinList = 50
-
-/**
- * ----------------------------------------------------------------------------------------
- * Status Equips Attributes
- * ----------------------------------------------------------------------------------------
- */
-/*Hero*/
-
-const heroStatus = {
-  heroClass: 1,
-  heroHP: 1,
-  heroATT: 1,
-  heroDEF: 1,
-  heroCOIN: 10
-}
-
-const heroEquips = {
-  heroHELMET: 1,
-  heroARMOR: 1,
-  heroBOOTS: 1,
-  heroWEAPON: 1,
-  heroSHIELD: 1,
-  heroRING: 1
-}
-const heroAttributes = {
-  heroSTR: 1,
-  heroINT: 1,
-  heroDEX: 1,
-  heroVIT: 1
-}
-
-/*Monster*/
-const monsterHPList = [0, 'goblinHP', 'skeletonHP', 'centaurHP', 'wolfHP', 'reaperHP', 'golemHP', 'deadknightP', 'pirateHP']
-
-const monsterStatus = {
-  goblinHP: 100,
-  skeletonHP: 200,
-  centaurHP: 300,
-  wolfHP: 400,
-  reaperHP: 500,
-  golemHP: 600,
-  deadknightP: 700,
-  pirateHP: 1000
-}
-
-/*Knight*/
-const knightStatus = {
-  knightHP: 100,
-  knightATT: 10,
-  knightDEF: 10,
-  knightCOIN: 10
-}
-
-const knightAttributes = {
-  knightSTR: 10,
-  knightINT: 5,
-  knightDEX: 5,
-  knightVIT: 5
-}
-
-/*Archer*/
-const archerStatus = {
-  archerHP: 100,
-  archerATT: 10,
-  archerDEF: 10,
-  archerCOIN: 10
-}
-
-const archerAttributes = {
-  archerSTR: 5,
-  archerINT: 5,
-  archerDEX: 10,
-  archerVIT: 5
-}
-
-/*Assassin*/
-const assassinStatus = {
-  assassinHP: 100,
-  assassinATT: 10,
-  assassinDEF: 10,
-  assassinCOIN: 10
-}
-
-const assassinAttributes = {
-  assassinSTR: 8,
-  assassinINT: 5,
-  assassinDEX: 8,
-  assassinVIT: 5
-}
-
-/*Mage*/
-const mageStatus = {
-  mageHP: 100,
-  mageATT: 10,
-  mageDEF: 10,
-  mageCOIN: 10
-}
-
-const mageAttributes = {
-  mageSTR: 5,
-  mageINT: 10,
-  mageDEX: 5,
-  mageVIT: 5
 }
 
 /**
@@ -606,7 +522,7 @@ function heroStatusAttributes() {
   herohp3.innerHTML = heroStatus.heroHP
   heroatt3.innerHTML = heroStatus.heroATT
   herodef3.innerHTML = heroStatus.heroDEF
-  herocoin3.innerHTML = heroStatus.heroCOIN
+  herocoin3.innerHTML = '$' + heroStatus.heroCOIN
   herostr.innerHTML = heroAttributes.heroSTR
   heroint.innerHTML = heroAttributes.heroINT
   herodex.innerHTML = heroAttributes.heroDEX
@@ -634,6 +550,7 @@ function archerStatusAttributes() {
   heroAttributes.heroDEX = archerAttributes.archerDEX
   heroAttributes.heroVIT = archerAttributes.archerVIT
 }
+
 function assassinStatusAttributes() {
   heroStatus.heroClass = 3
   heroStatus.heroHP = assassinStatus.assassinHP
@@ -673,25 +590,29 @@ status4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page5.classList.toggle('show')
   clickButton.play()
+  refreshUpgrades()
 })
 
 equips4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page6.classList.toggle('show')
   clickButton.play()
+  refreshUpgrades()
 })
 
 attributes4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page7.classList.toggle('show')
   clickButton.play()
+  refreshUpgrades()
 })
 
 nivel4.addEventListener('click', function () {
   page4.classList.toggle('show')
   page8.classList.toggle('show')
   clickButton.play()
-  herocoin8.innerHTML = `${heroStatus.heroCOIN}`
+  refreshUpgrades()
+  herocoin8.innerHTML = '$' + `${heroStatus.heroCOIN}`
   herohp8.innerHTML = `${heroStatus.heroHP}`
   monsterhp8.innerHTML = `${monsterStatus[`${monsterHPList[`${nivelFight}`]}`]}`
 })
@@ -705,6 +626,14 @@ btnrestart4.addEventListener('click', function () {
  * Page5 STATUS
  * ----------------------------------------------------------------------------------------
  */
+/* Hero Coin */
+heroStatus.heroCOIN = 50
+const heroCoinList = 50
+
+/* Equips Atributtes Price */
+const attributesPrice = 5
+const equipsPrice = 15
+
 /* Change page*/
 const page5 = document.querySelector('#MobilePage5')
 const back5 = document.querySelector('#MobilePage5 footer .btn-back')
@@ -714,11 +643,8 @@ back5.addEventListener('click', function () {
   page4.classList.toggle('show')
   clickButton.play()
 })
-/**
- * ----------------------------------------------------------------------------------------
- * Refresh Upgrades
- * ----------------------------------------------------------------------------------------
- */
+
+/* Refresh Upgrades */
 function refreshUpgrades() {
   heroStatus.heroATT = heroAttack[`${heroStatus.heroClass}`]()
   heroatt3.innerHTML = Math.round(heroStatus.heroATT)
@@ -728,6 +654,11 @@ function refreshUpgrades() {
 
   heroStatus.heroHP = heroVitHP[`${heroStatus.heroClass}`]()
   herohp3.innerHTML = Math.round(heroStatus.heroHP)
+
+  herocoin3.innerHTML = '$' + Math.round(heroStatus.heroCOIN)
+
+  herocoin6.innerHTML = '$' + Math.round(heroStatus.heroCOIN)
+  herocoin7.innerHTML = '$' + Math.round(heroStatus.heroCOIN)
 }
 
 /**
@@ -736,6 +667,12 @@ function refreshUpgrades() {
  * ----------------------------------------------------------------------------------------
  */
 /* Change page*/
+const herocoin6 = document.querySelector('#MobilePage6 .heroCOIN')
+const equipsPrice6 = document.querySelector('#MobilePage6 .equipsPrice')
+
+herocoin6.innerHTML = '$' + Math.round(heroStatus.heroCOIN)
+equipsPrice6.innerHTML = 'PRICE $' + Math.round(equipsPrice)
+
 const page6 = document.querySelector('#MobilePage6')
 const back6 = document.querySelector('#MobilePage6 footer .btn-back')
 
@@ -769,75 +706,115 @@ const heroboots = document.querySelector('#MobilePage6 .heroBOOTS')
 const heroring = document.querySelector('#MobilePage6 .heroRING')
 
 function helmetUpgrade() {
-  if (heroEquips.heroHELMET === 1) {
+  if (heroEquips.heroHELMET === 1 && heroStatus.heroCOIN >= equipsPrice) {
     herohelmet.style.background = 'var(--color09)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroHELMET === 2) {
+  if (heroEquips.heroHELMET === 2 && heroStatus.heroCOIN >= equipsPrice) {
     herohelmet.style.background = 'var(--color10)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroHELMET == 3) {
+  if (heroEquips.heroHELMET === 3 && heroStatus.heroCOIN >= equipsPrice) {
     herohelmet.style.background = 'var(--color11)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
   clickButton.play()
   heroEquips.heroHELMET += 1
 }
 function weaponUpgrade() {
-  if (heroEquips.heroWEAPON === 1) {
+  if (heroEquips.heroWEAPON === 1 && heroStatus.heroCOIN >= equipsPrice) {
     heroweapon.style.background = 'var(--color09)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroWEAPON === 2) {
+  if (heroEquips.heroWEAPON === 2 && heroStatus.heroCOIN >= equipsPrice) {
     heroweapon.style.background = 'var(--color10)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroWEAPON == 3) {
+  if (heroEquips.heroWEAPON === 3 && heroStatus.heroCOIN >= attributesPrice) {
     heroweapon.style.background = 'var(--color11)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
   clickButton.play()
   heroEquips.heroWEAPON += 1
 }
 function armorUpgrade() {
-  if (heroEquips.heroARMOR === 1) {
+  if (heroEquips.heroARMOR === 1 && heroStatus.heroCOIN >= attributesPrice) {
     heroarmor.style.background = 'var(--color09)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroARMOR === 2) {
+  if (heroEquips.heroARMOR === 2 && heroStatus.heroCOIN >= attributesPrice) {
     heroarmor.style.background = 'var(--color10)'
-  } else if (heroEquips.heroARMOR == 3) {
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
+  }
+  if (heroEquips.heroARMOR === 3 && heroStatus.heroCOIN >= attributesPrice) {
     heroarmor.style.background = 'var(--color11)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
   clickButton.play()
   heroEquips.heroARMOR += 1
 }
 function shieldUpgrade() {
-  if (heroEquips.heroSHIELD === 1) {
+  if (heroEquips.heroSHIELD === 1 && heroStatus.heroCOIN >= attributesPrice) {
     heroshield.style.background = 'var(--color09)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroSHIELD === 2) {
+  if (heroEquips.heroSHIELD === 2 && heroStatus.heroCOIN >= attributesPrice) {
     heroshield.style.background = 'var(--color10)'
-  } else if (heroEquips.heroSHIELD == 3) {
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
+  }
+  if (heroEquips.heroSHIELD === 3 && heroStatus.heroCOIN >= attributesPrice) {
     heroshield.style.background = 'var(--color11)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
   clickButton.play()
   heroEquips.heroSHIELD += 1
 }
 function bootsUpgrade() {
-  if (heroEquips.heroBOOTS === 1) {
+  if (heroEquips.heroBOOTS === 1 && heroStatus.heroCOIN >= attributesPrice) {
     heroboots.style.background = 'var(--color09)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroBOOTS === 2) {
+  if (heroEquips.heroBOOTS === 2 && heroStatus.heroCOIN >= attributesPrice) {
     heroboots.style.background = 'var(--color10)'
-  } else if (heroEquips.heroBOOTS == 3) {
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
+  }
+  if (heroEquips.heroBOOTS == 3 && heroStatus.heroCOIN >= attributesPrice) {
     heroboots.style.background = 'var(--color11)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
   clickButton.play()
   heroEquips.heroBOOTS += 1
 }
 function ringUpgrade() {
-  if (heroEquips.heroRING === 1) {
+  if (heroEquips.heroRING === 1 && heroStatus.heroCOIN >= attributesPrice) {
     heroring.style.background = 'var(--color09)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
-  if (heroEquips.heroRING === 2) {
+  if (heroEquips.heroRING === 2 && heroStatus.heroCOIN >= attributesPrice) {
     heroring.style.background = 'var(--color10)'
-  } else if (heroEquips.heroRING == 3) {
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
+  }
+  if (heroEquips.heroRING == 3 && heroStatus.heroCOIN >= attributesPrice) {
     heroring.style.background = 'var(--color11)'
+    heroStatus.heroCOIN -= equipsPrice
+    refreshUpgrades()
   }
   clickButton.play()
   heroEquips.heroRING += 1
@@ -849,6 +826,12 @@ function ringUpgrade() {
  * ----------------------------------------------------------------------------------------
  */
 /* Change page*/
+const herocoin7 = document.querySelector('#MobilePage7 .heroCOIN')
+herocoin7.innerHTML = '$' + Math.round(heroStatus.heroCOIN)
+
+const attributesPrice7 = document.querySelector('#MobilePage7 .attributesPrice')
+attributesPrice7.innerHTML = 'PRICE $' + Math.round(attributesPrice)
+
 const page7 = document.querySelector('#MobilePage7')
 const back7 = document.querySelector('#MobilePage7 footer .btn-back')
 
@@ -869,21 +852,39 @@ btnint.addEventListener('click', intUpgrade)
 btndex.addEventListener('click', dexUpgrade)
 btnvit.addEventListener('click', vitUpgrade)
 
+//herocoin3.innerHTML = heroStatus.heroCOIN
+
 function strUpgrade() {
-  heroAttributes.heroSTR += 1
-  herostr.innerHTML = heroAttributes.heroSTR
+  if (heroStatus.heroCOIN >= attributesPrice) {
+    heroAttributes.heroSTR += 1
+    herostr.innerHTML = heroAttributes.heroSTR
+    heroStatus.heroCOIN -= attributesPrice
+    refreshUpgrades()
+  }
 }
 function intUpgrade() {
-  heroAttributes.heroINT += 1
-  heroint.innerHTML = heroAttributes.heroINT
+  if (heroStatus.heroCOIN >= attributesPrice) {
+    heroAttributes.heroINT += 1
+    heroint.innerHTML = heroAttributes.heroINT
+    heroStatus.heroCOIN -= attributesPrice
+    refreshUpgrades()
+  }
 }
 function dexUpgrade() {
-  heroAttributes.heroDEX += 1
-  herodex.innerHTML = heroAttributes.heroDEX
+  if (heroStatus.heroCOIN >= attributesPrice) {
+    heroAttributes.heroDEX += 1
+    herodex.innerHTML = heroAttributes.heroDEX
+    heroStatus.heroCOIN -= attributesPrice
+    refreshUpgrades()
+  }
 }
 function vitUpgrade() {
-  heroAttributes.heroVIT += 1
-  herovit.innerHTML = heroAttributes.heroVIT
+  if (heroStatus.heroCOIN >= attributesPrice) {
+    heroAttributes.heroVIT += 1
+    herovit.innerHTML = heroAttributes.heroVIT
+    heroStatus.heroCOIN -= attributesPrice
+    refreshUpgrades()
+  }
 }
 
 /**
@@ -949,7 +950,7 @@ i = imgmonster.addEventListener('click', function () {
     }, 0251)
 
     heroStatus.heroCOIN += heroCoinList
-    herocoin8.innerHTML = heroStatus.heroCOIN
+    herocoin8.innerHTML = '$' + heroStatus.heroCOIN
 
     upgrade8.classList.toggle('hidden')
     clickFight = 1
@@ -963,11 +964,12 @@ i = imgmonster.addEventListener('click', function () {
 upgrade8.addEventListener('click', function () {
   page8.classList.toggle('show')
   page4.classList.toggle('show')
-  clickButton.play()
-  nivelFight += 1
   fight8.classList.toggle('hidden')
   upgrade8.classList.toggle('hidden')
   back8.classList.toggle('hidden')
+  clickButton.play()
   monsterImageList[`${nivelFight}`]()
+  nivelFight += 1
   nivel4.innerHTML = 'NÍVEL ' + [`${nivelFight}`]
+  herocoin3.innerHTML = heroStatus.heroCOIN
 })
