@@ -3,17 +3,7 @@
  * Image
  * ----------------------------------------------------------------------------------------
  */
-const monsterImageList = [
-  0,
-  goblinImage,
-  skeletonImage,
-  centaurImage,
-  wolfImage,
-  reaperImage,
-  golemImage,
-  deadknightImage,
-  pirateImage
-]
+const monsterImageList = [0, goblinImage, skeletonImage, centaurImage, wolfImage, reaperImage, golemImage, deadknightImage, pirateImage]
 
 function goblinImage() {
   imgmonster.src = 'assets/image/Goblin.svg'
@@ -51,17 +41,7 @@ function pirateImage() {
  * Punch
  * ----------------------------------------------------------------------------------------
  */
-const monsterPunchList = [
-  0,
-  goblinPunch,
-  skeletonPunch,
-  centaurPunch,
-  wolfPunch,
-  reaperPunch,
-  golemPunch,
-  deathKnightPunch,
-  piratePunch
-]
+const monsterPunchList = [0, goblinPunch, skeletonPunch, centaurPunch, wolfPunch, reaperPunch, golemPunch, deathKnightPunch, piratePunch]
 
 function goblinPunch() {
   setTimeout(function () {
@@ -251,95 +231,58 @@ mp3Punch.volume = 0.1
  * Hero Damage (Monster Attack)
  * ----------------------------------------------------------------------------------------
  */
-const monsterDamage = [
-  0,
-  monster1,
-  monster2,
-  monster3,
-  monster4,
-  monster5,
-  monster6,
-  monster7,
-  monster8
-]
+const monsterDamage = [0, monster1, monster2, monster3, monster4, monster5, monster6, monster7, monster8]
 
 const monsterDamageBase = [0, 15, 20, 30, 40, 50, 60, 70, 80]
 
 function monster1() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[1] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[1] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
 function monster2() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[2] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[2] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
 function monster3() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[3] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[3] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
 function monster4() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[4] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[4] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
 function monster5() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[5] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[5] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
 function monster6() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[6] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[6] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
 function monster7() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[7] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[7] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
 function monster8() {
-  let monsterDamage = Math.round(
-    monsterDamageBase[8] - heroDefense[`${nivelFight}`]()
-  )
+  let monsterDamage = Math.round(monsterDamageBase[8] - heroDefense[`${heroStatus.heroClass}`]())
   return monsterDamage
 }
 
-const heroDefense = [
-  0,
-  knightDefense,
-  archerDefense,
-  assassinDefense,
-  mageDefense
-]
+const heroDefense = [0, knightDefense, archerDefense, assassinDefense, mageDefense]
 
 function knightDefense() {
   let knightDefense =
     heroAttributes.heroSTR * 0.7 +
     heroAttributes.heroDEX * 0.3 +
     heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET +
-      heroEquips.heroARMOR +
-      heroEquips.heroBOOTS +
-      heroEquips.heroSHIELD +
-      heroEquips.heroRING) /
-      3
+    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
   return knightDefense
 }
 
@@ -348,12 +291,7 @@ function archerDefense() {
     heroAttributes.heroSTR * 0.7 +
     heroAttributes.heroDEX * 0.3 +
     heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET +
-      heroEquips.heroARMOR +
-      heroEquips.heroBOOTS +
-      heroEquips.heroSHIELD +
-      heroEquips.heroRING) /
-      3
+    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
   return archerDefense
 }
 
@@ -362,12 +300,7 @@ function assassinDefense() {
     heroAttributes.heroSTR * 0.7 +
     heroAttributes.heroDEX * 0.3 +
     heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET +
-      heroEquips.heroARMOR +
-      heroEquips.heroBOOTS +
-      heroEquips.heroSHIELD +
-      heroEquips.heroRING) /
-      3
+    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
   return assassinDefense
 }
 
@@ -376,12 +309,7 @@ function mageDefense() {
     heroAttributes.heroSTR * 0.7 +
     heroAttributes.heroDEX * 0.3 +
     heroAttributes.heroINT * 0 +
-    (heroEquips.heroHELMET +
-      heroEquips.heroARMOR +
-      heroEquips.heroBOOTS +
-      heroEquips.heroSHIELD +
-      heroEquips.heroRING) /
-      3
+    (heroEquips.heroHELMET + heroEquips.heroARMOR + heroEquips.heroBOOTS + heroEquips.heroSHIELD + heroEquips.heroRING) / 3
   return mageDefense
 }
 
@@ -404,9 +332,7 @@ function archerAttack() {
 }
 
 function assassinAttack() {
-  let heroAttack =
-    heroEquips.heroWEAPON *
-    (heroAttributes.heroSTR * 0.8 + heroAttributes.heroDEX * 0.8)
+  let heroAttack = heroEquips.heroWEAPON * (heroAttributes.heroSTR * 0.8 + heroAttributes.heroDEX * 0.8)
   return heroAttack
 }
 
@@ -479,17 +405,7 @@ const heroAttributes = {
 }
 
 /*Monster*/
-const monsterHPList = [
-  0,
-  'goblinHP',
-  'skeletonHP',
-  'centaurHP',
-  'wolfHP',
-  'reaperHP',
-  'golemHP',
-  'deadknightP',
-  'pirateHP'
-]
+const monsterHPList = [0, 'goblinHP', 'skeletonHP', 'centaurHP', 'wolfHP', 'reaperHP', 'golemHP', 'deadknightP', 'pirateHP']
 
 const monsterStatus = {
   goblinHP: 100,
@@ -1016,27 +932,16 @@ fight8.addEventListener('click', function () {
   clickFight += 1
 })
 i = imgmonster.addEventListener('click', function () {
-  if (
-    clickFight === 2 &&
-    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] > 0 &&
-    heroVarHP != 0
-  ) {
-    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] -=
-      heroAttack[`${heroStatus.heroClass}`]()
+  if (clickFight === 2 && monsterStatus[`${monsterHPList[`${nivelFight}`]}`] > 0 && heroVarHP != 0) {
+    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] -= heroAttack[`${heroStatus.heroClass}`]()
     heroVarHP -= Math.round(monsterDamage[`${nivelFight}`]())
-    monsterhp8.innerText = Math.round(
-      monsterStatus[`${monsterHPList[`${nivelFight}`]}`]
-    )
+    monsterhp8.innerText = Math.round(monsterStatus[`${monsterHPList[`${nivelFight}`]}`])
 
     herohp8.innerText = heroVarHP
     mp3Punch.play()
     monsterPunchList[`${nivelFight}`]()
   }
-  if (
-    clickFight === 2 &&
-    monsterStatus[`${monsterHPList[`${nivelFight}`]}`] <= 0 &&
-    heroVarHP != 0
-  ) {
+  if (clickFight === 2 && monsterStatus[`${monsterHPList[`${nivelFight}`]}`] <= 0 && heroVarHP != 0) {
     monsterhp8.innerText = 'Defeat'
     infattack8.innerHTML = 'WIN'
     setTimeout(function () {
